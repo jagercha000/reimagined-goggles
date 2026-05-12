@@ -34,3 +34,10 @@ body {
 .hidden {
   display: none;
 }
+
+.dropdown-arrow {
+  border: solid var(--theme-text);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  transform: rotate(45deg);
+}
