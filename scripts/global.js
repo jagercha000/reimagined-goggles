@@ -7,14 +7,21 @@ import "./footer.js"
 import "./loader.js"
 var siteName = "Taiga";
 var sitePath = "/taiga-website/";
+var authors = "Charles Jager and Linden Ling";
+function processComponent(componentContent) {
+  componentContent = componentContent.replaceAll('%SITENAME%', siteName);
+  componentContent = componentContent.replaceAll('%SITE%', sitePath);
+  componentContent = componentContent.replaceAll('%AUTHORS%', authors);
+  return componentContent;
+}
 async function loadComponents() {
   var headerResponse = await fetch(sitePath + "components/header.html");
   var footerResponse = await fetch(sitePath + "components/footer.html");
   var headerContent = await headerResponse.text();
   var footerContent = await footerResponse.text();
-  document.querySelector('header').innerHTML = headerContent;
+  document.querySelector('header').innerHTML = processComponent(headerContent);
   callHook('header-init');
-  document.querySelector('footer').innerHTML = footerContent;
+  document.querySelector('footer').innerHTML = processComponent(footerContent);
   callHook('footer-init');
 }
 function injectIcon() {
