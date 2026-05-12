@@ -8,10 +8,12 @@ import "./loader.js"
 var siteName = "Taiga";
 var sitePath = "/taiga-website/";
 var authors = "Charles Jager and Linden Ling";
+var currentYear = new Date().getFullYear();
 function processComponent(componentContent) {
   componentContent = componentContent.replaceAll('%SITENAME%', siteName);
   componentContent = componentContent.replaceAll('%SITE%', sitePath);
   componentContent = componentContent.replaceAll('%AUTHORS%', authors);
+  componentContent = componentContent.replaceAll('%YEAR%', currentYear);
   return componentContent;
 }
 async function loadComponents() {
