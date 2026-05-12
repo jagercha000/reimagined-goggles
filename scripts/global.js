@@ -1,4 +1,4 @@
-globalThis.hooks = new Object();
+globalThis.hooks = globalThis.hooks || new Object();
 function callHook(hookId) {
   return globalThis.hooks[hookId]();
 }
