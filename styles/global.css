@@ -41,3 +41,8 @@ body {
   display: inline-block;
   transform: rotate(45deg);
 }
+
+main {
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
