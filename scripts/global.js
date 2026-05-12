@@ -1,7 +1,8 @@
 import "./header.js"
 import "./footer.js"
 import "./loader.js"
-var sitePath = "/reimagined-goggles/";
+var siteName = "Taiga";
+var sitePath = "/taiga-website/";
 async function loadComponents() {
   var headerResponse = await fetch(sitePath + "components/header.html");
   var footerResponse = await fetch(sitePath + "components/footer.html");
@@ -18,10 +19,14 @@ function injectIcon() {
   element.setAttribute('href', iconURL);
   document.head.appendChild(element);
 }
+function modifyTitles() {
+  document.title = document.title = " | " + siteName;
+}
 function hideLoader() {}
 async function init() {
   await loadComponents();
   injectIcon();
+  modifyTitles();
   hideLoader();
 }
 init();
