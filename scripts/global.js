@@ -10,9 +10,18 @@ async function loadComponents() {
   document.querySelector('header').innerHTML = headerContent;
   document.querySelector('footer').innerHTML = footerContent;
 }
+function injectIcon() {
+  var iconURL = sitePath + "assets/favicon.png";
+  var element = document.createElement('link');
+  element.setAttribute('rel', 'icon');
+  element.setAttribute('type', 'image/png');
+  element.setAttribute('href', iconURL);
+  document.head.appendChild(element);
+}
 function hideLoader() {}
 async function init() {
   await loadComponents();
+  injectIcon();
   hideLoader();
 }
 init();
