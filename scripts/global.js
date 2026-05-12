@@ -1,4 +1,7 @@
 globalThis.hooks = new Object();
+function callHook(hookId) {
+  return globalThis.hooks[hookId]();
+}
 import "./header.js"
 import "./footer.js"
 import "./loader.js"
@@ -10,7 +13,9 @@ async function loadComponents() {
   var headerContent = await headerResponse.text();
   var footerContent = await footerResponse.text();
   document.querySelector('header').innerHTML = headerContent;
+  callHook('header-init');
   document.querySelector('footer').innerHTML = footerContent;
+  callHook('footer-init');
 }
 function injectIcon() {
   var iconURL = sitePath + "assets/favicon.png";
@@ -21,13 +26,16 @@ function injectIcon() {
   document.head.appendChild(element);
 }
 function modifyTitles() {
-  document.title = document.title = " | " + siteName;
+  document.title = document.title + " | " + siteName;
 }
-function hideLoader() {}
+function hideLoader() {
+  callHook('loader-hide');
+}
 async function init() {
+  callHook('loader-init');
   await loadComponents();
   injectIcon();
   modifyTitles();
   hideLoader();
 }
-init();
+window.addEventListener('load', init);
