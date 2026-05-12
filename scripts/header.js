@@ -13,6 +13,15 @@ globalThis.hooks['header-init'] = function() {
   });
   document.body.addEventListener('click', function(evt) {
     var allowedClasses = [ 'header-menu-dropdown-content', 'header-menu-dropdown-button' ];
-    hideHeaderDropdowns();
+    var shouldHide = true;
+    allowedClasses.forEach((function(allowedClass) {
+      var allowedElement = evt.target.closest('.' + allowedClass);
+      if(allowedElement) {
+        shouldHide = false;
+      }
+    }).bind(this));
+    if(shouldHide) {
+      hideHeaderDropdowns();
+    }
   });
 };
