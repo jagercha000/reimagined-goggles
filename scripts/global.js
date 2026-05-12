@@ -1,3 +1,4 @@
+globalThis.hooks = new Object();
 import "./header.js"
 import "./footer.js"
 import "./loader.js"
