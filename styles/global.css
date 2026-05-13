@@ -11,7 +11,8 @@
   --theme-hover-accent: #ffffff22;
   --theme-accent-1: #3ade76;
   --theme-accent-2: #d9b857;
-  --theme-button-text: #6b6b6b;
+  --theme-button-text: #cbcbcb;
+  --theme-button-hover-text: #6b6b6b;
 }
 
 * {
@@ -83,8 +84,10 @@ button {
   align-items: center;
   align-content: center;
   justify-content: center;
+  transition: all 250ms ease-out;
 }
 
 button:hover {
   background-color: var(--theme-accent-2);
+  color: var(--theme-button-hover-text);
 }
