@@ -9,7 +9,7 @@ globalThis.hooks['loader-update'] = function(percent) {
 globalThis.hooks['loader-hide'] = function() {
   globalThis.loadingBar.set(100, true);
   setTimeout(function() {
-    gsap.fromTo('.loader-overlay', { opacity: 1 }, { opacity: 0, duration: 2, onComplete: function() {
+    gsap.fromTo('.loader-overlay', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
       document.querySelector('.loader-overlay').classList.add('hidden');
     }});
   }, 2500);
