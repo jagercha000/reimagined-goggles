@@ -27,6 +27,7 @@
   font-size: 21pt;
   color: var(--theme-text);
   background-clip: text;
+  background: transparent;
 }
 
 header {
