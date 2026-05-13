@@ -2,14 +2,14 @@
   position: fixed;
   bottom: 10px;
   left: 10px;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 .gallery-next-button {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 .gallery-prev-arrow, .gallery-next-arrow {
@@ -22,7 +22,7 @@
   top: 10px;
   left: 50%;
   transform: translate(-50%, 0);
-  z-index: 9999;
+  z-index: 9998;
   font-size: 15pt;
   margin: 0;
   font-weight: 800;
