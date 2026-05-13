@@ -3,5 +3,10 @@
     "url": "image1.jpg",
     "type": "image/jpeg",
     "caption": "Shovel Point"
+  },
+  {
+    "url": "image2.jpg",
+    "type": "image/jpeg",
+    "caption": "Siberian Taiga in Autumn"
   }
 ]
