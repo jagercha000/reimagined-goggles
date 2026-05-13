@@ -15,7 +15,7 @@ globalThis.hooks['header-init'] = function() {
         var buttonBox = evt.target.closest('.header-menu-dropdown-button').getBoundingClientRect();
         var dropdownBox = targetDropdown.getBoundingClientRect();
         var buttonCenter = buttonBox.left - (buttonBox.width / 2);
-        var offset = (dropdownBox.width / 2);
+        var offset = (dropdownBox.width / 4);
         var newLeft = buttonCenter - offset;
         targetDropdown.style.left = newLeft + 'px';
         document.body.classList.add('dropdown-active');
