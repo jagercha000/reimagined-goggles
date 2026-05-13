@@ -67,6 +67,7 @@ header {
   align-items: center;
   justify-content: center;
   padding: 5px;
+  text-align: center;
 }
 
 .header-menu-dropdown-content a:hover {
