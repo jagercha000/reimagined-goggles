@@ -48,6 +48,10 @@ body {
   top: -1px;
 }
 
+.dropdown-active main {
+  pointer-events: none;
+}
+
 main {
   height: calc(100% - calc(64px * 2));
   overscroll-behavior: contain;
