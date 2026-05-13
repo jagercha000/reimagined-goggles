@@ -8,5 +8,6 @@
   align-items: center;
   align-content: center;
   justify-content: center;
-  background-image: url('../assets/hero-background.png');
+  background-image: url('../assets/hero-background.jpg');
+  background-size: cover;
 }
