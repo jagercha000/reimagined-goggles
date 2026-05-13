@@ -10,6 +10,6 @@
   right: 10px;
 }
 
-.gallery-prev-arrow, .gallery-next-arrow {
-  color: inherit;
+.gallery-prev-arrow path, .gallery-next-arrow path {
+  stroke: inherit;
 }
