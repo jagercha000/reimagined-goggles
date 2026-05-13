@@ -2,12 +2,14 @@
   position: fixed;
   bottom: 10px;
   left: 10px;
+  --button-color: currentColor;
 }
 
 .gallery-next-button {
   position: fixed;
   bottom: 10px;
   right: 10px;
+  --button-color: currentColor;
 }
 
 .gallery-prev-arrow, .gallery-next-arrow {
@@ -16,6 +18,5 @@
 }
 
 .gallery-prev-arrow path, .gallery-next-arrow path {
-  color: inherit;
-  stroke: currentColor;
+  stroke: var(--button-color);
 }
