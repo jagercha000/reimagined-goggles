@@ -40,7 +40,7 @@ header {
   left: 0;
 }
 
-.header-menu-dropdown {
+.header-menu-dropdown-content {
   position: fixed;
   transform: translate(0, 10px);
   background: var(--theme-dark-accent-background);
