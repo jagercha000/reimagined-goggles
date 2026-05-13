@@ -6,12 +6,13 @@
 .header-logo {
   margin-right: 3px;
   display: inline-block;
-  height: 75%;
-  width: 75%;
+  height: 32px;
+  width: 32px;
   mask-image: url("../assets/favicon.png");
-  mask-size: 75%;
+  mask-size: 32px;
   mask-mode: alpha;
   background-color: var(--theme-text);
+  white-space: pre;
 }
 
 .header-menu-item {
