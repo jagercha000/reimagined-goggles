@@ -8,8 +8,27 @@ async function downloadPicture(pictureObject) {
   var blob = new Blob([buf], { 'type': pictureObject.type });
   return URL.createObjectURL(blob);
 }
-function createGalleryButtons() {}
-function createGalleryPictures() {}
+function previousPicture() {}
+function nextPicture() {}
+function createGalleryButtons() {
+  var prevBtn = document.createElement('button');
+  var nextBtn = document.createElement('button');
+  prevBtn.innerHTML = `<span class="gallery-prev-arrow"></span> Previous`;
+  nextBtn.innerHTML = `<span class="gallery-next-arrow"></span> Next`;
+  prevBtn.onclick = previousPicture;
+  nextBtn.onclick = nextPicture;
+  prevBtn.setAttribute('class', 'gallery-previous-button');
+  nextBtn.setAttribute('class', 'gallery-next-button');
+  document.body.appendChild(prevBtn);
+  document.body.appendChild(nextBtn);
+}
+function createGalleryCaption() {}
+function createGalleryPicture(picture) {}
+function createGalleryPictures() {
+  globalThis.player.galleryData.forEach(function(picture) {
+    createGalleryPicture(picture);
+  });
+}
 globalThis.player.galleryData = globalThis.player.galleryData || [];
 (async function() {
   globalThis.player.galleryData = await fetchPictureMetadata();
@@ -17,5 +36,6 @@ globalThis.player.galleryData = globalThis.player.galleryData || [];
     globalThis.player.galleryData[i].blob = await downloadPicture(globalThis.player.galleryData[i]);
   }
   createGalleryButtons();
+  createGalleryCaption();
   createGalleryPictures();
 })();
