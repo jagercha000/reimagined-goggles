@@ -7,7 +7,7 @@
   align-items: center;
   align-content: center;
   justify-content: center;
-  background-image: url('../assets/hero-background.jpg');
+  --background-overlay: #00000044;
+  background-image: linear-gradient(to bottom, var(--background-overlay), var(--background-overlay)), url('../assets/hero-background.jpg');
   background-size: cover;
-  background-color: #00000044;
 }
