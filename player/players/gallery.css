@@ -1,3 +1,9 @@
+@property --button-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: black;
+}
+
 .gallery-previous-button {
   position: fixed;
   bottom: 10px;
