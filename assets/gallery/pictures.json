@@ -13,5 +13,10 @@
     "url": "image3.jpg",
     "type": "image/jpeg",
     "caption": "Yukon River"
+  },
+  {
+    "url": "image4.jpg",
+    "type": "image/jpeg",
+    "caption": "Helvetinjärvi National Park"
   }
 ]
