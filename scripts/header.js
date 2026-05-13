@@ -11,8 +11,8 @@ globalThis.hooks['header-init'] = function() {
       var targetDropdown = evt.target.closest('.header-menu-dropdown-button').parentElement.querySelector('.header-menu-dropdown-content');
       evt.preventDefault();
       if(targetDropdown.classList.contains('hidden')) {
-        var buttonBox = evt.target.closest('.header-menu-dropdown-button').getClientBoundingRect();
-        var dropdownBox = targetDropdown.getClientBoundingRect();
+        var buttonBox = evt.target.closest('.header-menu-dropdown-button').getBoundingClientRect();
+        var dropdownBox = targetDropdown.getBoundingClientRect();
         var buttonCenter = buttonBox.left - (buttonBox.width / 2);
         var offset = dropdownBox.width / 2;
         var newLeft = buttonCenter - offset;
