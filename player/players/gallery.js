@@ -17,8 +17,8 @@ function createGalleryButtons() {
   nextBtn.innerHTML = `<span class="gallery-next-arrow"></span> Next`;
   prevBtn.onclick = previousPicture;
   nextBtn.onclick = nextPicture;
-  prevBtn.setAttribute('class', 'gallery-previous-button');
-  nextBtn.setAttribute('class', 'gallery-next-button');
+  prevBtn.setAttribute('class', 'gallery-previous-button outline-button');
+  nextBtn.setAttribute('class', 'gallery-next-button outline-button');
   document.body.appendChild(prevBtn);
   document.body.appendChild(nextBtn);
 }
