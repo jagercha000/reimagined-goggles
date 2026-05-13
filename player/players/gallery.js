@@ -92,7 +92,7 @@ globalThis.player.galleryData = globalThis.player.galleryData || [];
   createGalleryCaption();
   createGalleryPictures();
   setTimeout(function() {
-    gsap.fromTo('.gallery-loading', { opacity: 0 }, { opacity: 1, duration: 1, onComplete: function() {
+    gsap.fromTo('.gallery-loading', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
       document.querySelector('.gallery-loading').classList.add('hidden');
       selectPicture(0);
     }});
