@@ -1,1 +1,1 @@
-Scripts for dynamic player.
+Scripts and styles for dynamic player.
