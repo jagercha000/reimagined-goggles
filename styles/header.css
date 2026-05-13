@@ -19,7 +19,7 @@
 }
 
 .header-menu-item:hover {
-  background: #ffffff22;
+  background: var(--theme-hover-accent);
 }
 
 .logo-button {
@@ -38,4 +38,18 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.header-menu-dropdown {
+  position: fixed;
+  transform: translate(0, 10px);
+  background: var(--theme-dark-accent-background);
+  padding: 20px;
+  border: 0;
+  border-radius: 10px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
