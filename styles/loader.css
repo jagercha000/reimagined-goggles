@@ -14,3 +14,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.ldBar-label {
+  color: var(--theme-text);
+}
