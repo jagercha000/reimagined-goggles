@@ -11,6 +11,12 @@ globalThis.hooks['header-init'] = function() {
       var targetDropdown = evt.target.closest('.header-menu-dropdown-button').parentElement.querySelector('.header-menu-dropdown-content');
       evt.preventDefault();
       if(targetDropdown.classList.contains('hidden')) {
+        var buttonBox = evt.target.closest('.header-menu-dropdown-button').getClientBoundingRect();
+        var dropdownBox = targetDropdown.getClientBoundingRect();
+        var buttonCenter = buttonBox.left - (buttonBox.width / 2);
+        var offset = dropdownBox.width / 2;
+        var newLeft = buttonCenter - offset;
+        targetDropdown.style.left = newLeft + 'px';
         targetDropdown.classList.remove('hidden');
         document.body.classList.add('dropdown-active');
       } else {
