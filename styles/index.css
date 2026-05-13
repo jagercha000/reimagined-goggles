@@ -27,7 +27,7 @@
   justify-content: center;
   --background-overlay: #00000044;
   background-image: linear-gradient(to bottom, var(--background-overlay), var(--background-overlay)), url('../assets/hero-background.jpg');
-  background-size: cover;
+  background-size: 125%;
   background-position: 0% 0%;
   animation: panBackground 60s linear infinite;
 }
