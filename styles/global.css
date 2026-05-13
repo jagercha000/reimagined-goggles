@@ -49,6 +49,10 @@ body {
 }
 
 main {
-  margin-top: 96px;
-  margin-bottom: 96px;
+  height: calc(100% - calc(64px * 2));
+  overscroll-behavior: contain;
+  overflow: auto;
+  position: fixed;
+  top: 64px;
+  left: 0;
 }
