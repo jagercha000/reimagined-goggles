@@ -22,9 +22,11 @@
   background: var(--theme-hover-accent);
 }
 
-.logo-button {
-  font-weight: bold;
+.logo-button .logo-button-text {
+  font-weight: 800;
   font-size: 21pt;
+  color: var(--theme-text);
+  background-clip: text;
 }
 
 header {
