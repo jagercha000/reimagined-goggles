@@ -8,5 +8,10 @@
     "url": "image2.jpg",
     "type": "image/jpeg",
     "caption": "Siberian Taiga in Autumn"
+  },
+  {
+    "url": "image3.jpg",
+    "type": "image/jpeg",
+    "caption": "Yukon River"
   }
 ]
