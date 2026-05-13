@@ -101,5 +101,15 @@ button.outline-button {
 
 button.outline-button:hover {
   background: var(--theme-accent-1);
-  color: var(--theme-button-text);
+  color: var(--theme-dark-accent-background);
+}
+
+button.theme-button {
+  background: var(--theme-accent-1);
+  color: var(--theme-dark-accent-background);
+}
+
+button.theme-button:hover {
+  background: var(--theme-accent-2);
+  color: var(--theme-dark-accent-background);
 }
