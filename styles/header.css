@@ -16,6 +16,7 @@
   margin: 0;
   padding-left: 50px;
   padding-right: 50px;
+  transition: all 250ms ease-out;
 }
 
 .header-menu-item:hover {
@@ -80,6 +81,7 @@ header {
   justify-content: center;
   padding: 7px;
   text-align: center;
+  transition: all 250ms ease-out;
 }
 
 .header-menu-dropdown-content a:hover {
