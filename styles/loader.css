@@ -23,6 +23,10 @@
   transform: translate(-50%, -50%);
 }
 
+.ldBar-label::after {
+  content: "%";
+}
+
 .ldBar path.mainline {
   stroke: var(--theme-accent-1);
   stroke-linecap: round;
