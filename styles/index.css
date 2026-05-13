@@ -8,8 +8,5 @@
   align-items: center;
   align-content: center;
   justify-content: center;
-}
-
-.home-hero-end-spacer {
-  height: 50px;
+  background-image: url('../assets/hero-background.png');
 }
