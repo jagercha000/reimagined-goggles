@@ -13,7 +13,7 @@ function nextPicture() {}
 function createGalleryButtons() {
   var prevBtn = document.createElement('button');
   var nextBtn = document.createElement('button');
-  prevBtn.innerHTML = `<span class="gallery-prev-arrow">&#8592;</span>`;
+  prevBtn.innerHTML = `<span class="gallery-prev-arrow">&#xF12F;</span>`;
   nextBtn.innerHTML = `<span class="gallery-next-arrow">&#8594;</span>`;
   prevBtn.onclick = previousPicture;
   nextBtn.onclick = nextPicture;
