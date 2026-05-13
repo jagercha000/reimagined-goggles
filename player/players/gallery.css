@@ -9,3 +9,7 @@
   bottom: 10px;
   right: 10px;
 }
+
+.gallery-prev-arrow, .gallery-next-arrow {
+  color: inherit;
+}
