@@ -29,12 +29,12 @@
   background: linear-gradient(90deg, var(--theme-text) 0%, var(--theme-text) 60%, var(--theme-accent-2) 69%, var(--theme-accent-1) 78%, var(--theme-accent-1) 100%);
   background-clip: text;
   background-size: 600% 100%;
-  background-position-x: left;
+  background-position-x: 0%;
   transition: background-position-x 500ms linear;
 }
 
 .logo-button:hover .logo-button-text {
-  background-position-x: right;
+  background-position-x: 100%;
 }
 
 header {
