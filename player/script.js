@@ -1,5 +1,5 @@
 globalThis.player = globalThis.player || new Object();
-window.addEventListener('load', function() {
+window.addEventListener('load', async function() {
   var urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('id')) {
     var playerScript = "./players/" + urlParams.get('id') + ".js";
@@ -8,10 +8,11 @@ window.addEventListener('load', function() {
     element.setAttribute('type', 'module');
     element.setAttribute('src', playerScript);
     document.head.appendChild(element);
-    var element2 = document.createElement('link');
-    element2.setAttribute('rel', 'stylesheet');
+    var response = await fetch(playerStyle);
+    var responseText = await response.text();
+    var element2 = document.createElement('style');
     element2.setAttribute('type', 'text/css');
-    element2.setAttribute('src', playerStyle);
+    element2.textContent = responseText;
     document.head.appendChild(element2);
   }
   var playerCanvas = document.querySelector('.player-canvas');
