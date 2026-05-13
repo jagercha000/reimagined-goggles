@@ -18,5 +18,10 @@
     "url": "image4.jpg",
     "type": "image/jpeg",
     "caption": "Helvetinjärvi National Park"
+  },
+  {
+    "url": "image5.jpg",
+    "type": "image/jpeg",
+    "caption": "Verkhoyansk, Russia"
   }
 ]
