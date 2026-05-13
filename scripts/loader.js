@@ -7,6 +7,7 @@ globalThis.hooks['loader-update'] = function(percent) {
   globalThis.loadingBar.set(percent, true);
 };
 globalThis.hooks['loader-hide'] = function() {
+  globalThis.loadingBar.set(100, true);
   setTimeout(function() {
     gsap.fromTo('.loader-overlay', { opacity: 1 }, { opacity: 0, duration: 2, onComplete: function() {
       document.querySelector('.loader-overlay').classList.add('hidden');
