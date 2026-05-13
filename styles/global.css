@@ -92,3 +92,14 @@ button:hover {
   background-color: var(--theme-button-hover-background);
   color: var(--theme-button-hover-text);
 }
+
+button.outline-button {
+  background: transparent;
+  color: var(--theme-accent-1);
+  border: 1px solid var(--theme-accent-1);
+}
+
+button.outline-button:hover {
+  background: var(--theme-accent-1);
+  color: var(--theme-button-text);
+}
