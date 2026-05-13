@@ -57,7 +57,7 @@ header {
 
 .header-menu-dropdown-content a {
   width: 150px;
-  height: 50px;
+  height: 75px;
   margin: 2px;
   text-decoration: none;
   border-radius: 10px;
@@ -66,7 +66,7 @@ header {
   align-content: center;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: 7px;
   text-align: center;
 }
 
