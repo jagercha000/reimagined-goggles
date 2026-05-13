@@ -15,14 +15,21 @@ function selectPicture(index) {
   var pictures = document.querySelectorAll('.gallery-picture');
   var currentPicture = document.querySelector('.gallery-picture:not(.hidden)');
   var newPicture = pictures[index];
-  gsap.fromTo(currentPicture, { opacity: 1 }, { opacity: 0, duration: 0.5, onComplete: (function() {
-    currentPicture.classList.add('hidden');
+  function showNewPicture() {
     newPicture.classList.remove('hidden');
     document.querySelector('.gallery-caption').innerText = globalThis.player.galleryData[index].caption;
     gsap.fromTo(newPicture, { opacity: 0 }, { opacity: 1, duration: 0.5, onComplete: (function() {
       globalThis.player.galleryAnimating = false;
     }).bind(this) });
-  }).bind(this) });
+  }
+  if(currentPicture) {
+    gsap.fromTo(currentPicture, { opacity: 1 }, { opacity: 0, duration: 0.5, onComplete: (function() {
+      currentPicture.classList.add('hidden');
+      showNewPicture();
+    }).bind(this) });
+  } else {
+    showNewPicture();
+  }
 }
 function previousPicture() {
   if(globalThis.player.galleryAnimating) { return; }
