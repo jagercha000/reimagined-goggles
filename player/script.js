@@ -23,7 +23,9 @@ globalThis.player.util.fitImage = function(image) {
 globalThis.player.util.clearCanvas = function() {
   globalThis.player.context.clearRect(0, 0, globalThis.player.canvas.width, globalThis.player.canvas.height);
 };
-globalThis.player.util.setCursor = function(cursor) {};
+globalThis.player.util.setCursor = function(cursor) {
+  glboalThis.player.canvas.style.cursor = cursor;
+};
 globalThis.player._mouseCoords = { x: -1, y: -1 };
 globalThis.player.util.getMouseCoords = function() {
   return globalThis.player._mouseCoords;
