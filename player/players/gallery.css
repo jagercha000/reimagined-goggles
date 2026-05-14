@@ -28,6 +28,9 @@
   font-weight: 800;
   color: var(--theme-text);
   -webkit-text-stroke: var(--theme-dark-background) medium;
+  width: 100%;
+  text-algin: center;
+  pointer-events: none;
 }
 
 .gallery-prev-arrow path, .gallery-next-arrow path {
