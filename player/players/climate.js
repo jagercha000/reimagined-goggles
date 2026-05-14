@@ -23,6 +23,7 @@ function processFade() {
     globalThis.player.climateData.animationActive = true;
     globalThis.player.climateData.opacity += (globalThis.player.climateData.direction * globalThis.player.climateData.mod);
     if(globalThis.player.climateData.direction < 0 && globalThis.player.climateData.opacity <= 0) {
+      globalThis.player.climateData.opacity = 0;
       globalThis.player.climateData.direction = 1;
       globalThis.player.climateData.currentSeason = globalThis.player.climateData.nextSeason;
     }
