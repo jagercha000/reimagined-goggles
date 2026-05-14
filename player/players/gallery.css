@@ -29,7 +29,7 @@
   color: var(--theme-text);
   -webkit-text-stroke: var(--theme-dark-background) medium;
   width: 100%;
-  text-algin: center;
+  text-align: center;
   pointer-events: none;
 }
 
