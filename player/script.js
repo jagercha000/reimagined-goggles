@@ -18,6 +18,11 @@ globalThis.player.util.fitImage = function(image) {
 globalThis.player.util.clearCanvas = function() {
   globalThis.player.context.clearRect(0, 0, globalThis.player.canvas.width, globalThis.player.canvas.height);
 };
+globalThis.player.util.setCursor = function(cursor) {};
+globalThis.player._mouseCoords = { x: -1, y: -1 };
+globalThis.player.util.getMouseCoords = function() {
+  return globalThis.player._mouseCoords;
+};
 window.addEventListener('load', async function() {
   var urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('id')) {
@@ -39,6 +44,17 @@ window.addEventListener('load', async function() {
     playerCanvas.width = window.innerWidth;
     playerCanvas.height = window.innerHeight;
   }
+  playerCanvas.addEventListener('mousemove', function(evt) {
+    var canvasHitbox = globalThis.player.canvas.getBoundingClientRect();
+    var calcX = evt.clientX - canvasHitbox.left;
+    var calcY = evt.clientY - canvasHitbox.top;
+    globalThis.player._mouseCoords = { x: calcX, y: calcY };
+  });
+  function canvasMouseOut() {
+    globalThis.player._mouseCoords = { x: -1, y: -1 };
+  }
+  playerCanvas.addEventListener('mouseout', canvasMouseOut);
+  playerCanvas.addEventListener('mouseleave', canvasMouseOut);
   updatePlayerCanvasSize();
   window.addEventListener('resize', updatePlayerCanvasSize.bind(this));
   globalThis.player.canvas = playerCanvas;
