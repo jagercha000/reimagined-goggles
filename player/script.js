@@ -93,4 +93,7 @@ window.addEventListener('load', async function() {
   window.addEventListener('resize', updatePlayerCanvasSize.bind(this));
   globalThis.player.canvas = playerCanvas;
   globalThis.player.context = playerCanvas.getContext('2d');
+  window.addEventListener('contextmenu', function(evt) {
+    evt.preventDefault();
+  });
 });
