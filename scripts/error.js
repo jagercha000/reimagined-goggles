@@ -10,7 +10,7 @@ async function addStyle(styleURL) {
 function addScript(scriptURL) {
   var element = document.createElement('script');
   element.setAttribute('src', scriptURL);
-  element.setAttribute('type', 'text/javascript');
+  element.setAttribute('type', 'module');
   document.head.appendChild(element);
 }
 addStyle(sitePath + "styles/global.css");
