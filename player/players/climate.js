@@ -1,5 +1,6 @@
 globalThis.player.climateData = globalThis.player.climateData || new Object();
 globalThis.player.climateData.images = globalThis.player.climateData.images || new Object();
+globalThis.player.climateUtil = globalThis.player.climateUtil || new Object();
 var element = document.createElement('div');
 element.setAttribute('class', 'climate-loading');
 element.innerText = "Loading";
@@ -18,7 +19,7 @@ globalThis.player.climateData.opacity = 1;
 globalThis.player.climateData.animationActive = false;
 globalThis.player.climateData.direction = -1;
 globalThis.player.climateData.mod = 0.05;
-function calculateHitbox(x, y, width, height) {
+globalThis.player.climateUtil.calculateHitbox = function(x, y, width, height) {
   var image = globalThis.player.climateData.images[globalThis.player.climateData.currentSeason].image;
   var canvas = globalThis.player.canvas;
   var hRatio = canvas.width / image.width;
@@ -33,7 +34,7 @@ function calculateHitbox(x, y, width, height) {
   var newWidth = width * ratio;
   var newHeight = height * ratio;
   return { x: newX, y: newY, width: newWidth, height: newHeight };
-}
+};
 function processFade() {
   if(globalThis.player.climateData.nextSeason != null) {
     globalThis.player.climateData.animationActive = true;
@@ -53,12 +54,12 @@ function processFade() {
     globalThis.player.climateData.animationActive = false;
   }
 }
-function changeSeason(newSeason) {
+globalThis.player.climateUtil.changeSeason = function(newSeason) {
   if(globalThis.player.climateData.animationActive) {
     return;
   }
   globalThis.player.climateData.nextSeason = newSeason;
-}
+};
 async function climateFrame() {
   globalThis.player.util.clearCanvas();
   processFade();
