@@ -21,9 +21,26 @@ globalThis.player.climateData.mod = 0.01;
 function processFade() {
   if(globalThis.player.climateData.nextSeason != null) {
     globalThis.player.climateData.animationActive = true;
+    globalThis.player.climateData.opacity += (globalThis.player.climateData.direction * globalThis.player.climateData.mod);
+    if(globalThis.player.climateData.direction < 0 && globalThis.player.climateData.opacity <= 0) {
+      globalThis.player.climateData.direction = 1;
+      globalThis.player.climateData.currentSeason = globalThis.player.climateData.nextSeason;
+    }
+    if(globalThis.player.climateData.direction > 0 && globalThis.player.climateData.opacity >= 1) {
+      globalThis.player.climateData.opacity = 1;
+      globalThis.player.climateData.direction = -1;
+      globalThis.player.climateData.nextSeason = null;
+      globalThis.player.climateData.animatonActive = false;
+    }
   } else {
     globalThis.player.climateData.animationActive = false;
   }
+}
+function changeSeason(newSeason) {
+  if(globalThis.player.climateData.animationActive) {
+    return;
+  }
+  globalThis.player.climateData.nextSeason = newSeason;
 }
 async function climateFrame() {
   globalThis.player.util.clearCanvas();
