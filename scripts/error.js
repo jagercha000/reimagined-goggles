@@ -1,5 +1,5 @@
 import "./constants.js"
-function addStyle(styleURL) {
+async function addStyle(styleURL) {
   var result = await fetch(styleURL);
   var content = await result.text();
   var element = document.createElement('style');
