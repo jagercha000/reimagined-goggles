@@ -15,6 +15,9 @@ globalThis.player.util.fitImage = function(image) {
     var y = (canvasHeight - newHeight) / 2;
     globalThis.player.context.drawImage(image, x, y, newWidth, newHeight);
 };
+globalThis.player.util.clearCanvas = function() {
+  globalThis.player.context.clearRect(0, 0, globalThis.player.canvas.width, globalThis.player.canvas.height);
+};
 window.addEventListener('load', async function() {
   var urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('id')) {
