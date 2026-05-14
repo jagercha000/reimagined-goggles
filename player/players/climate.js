@@ -15,7 +15,6 @@ async function registerImage(id, url) {
 }
 await registerImage("winter", "climate/winter.jpg");
 await registerImage("summer", "climate/summer.jpg");
-globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 0, width: 50, height: 50, click: function() { alert("Click!"); }});
 globalThis.player.climateData.currentSeason = "winter";
 globalThis.player.climateData.nextSeason = null;
 globalThis.player.climateData.opacity = 1;
