@@ -5,6 +5,16 @@ globalThis.player.util.downloadImage = async function(url) {
   var blob = await result.blob();
   return URL.createObjectURL(blob);
 };
+globalThis.player.util.fitImage = function(image) {
+    var canvasWidth = globalThis.player.canvas.width;
+    var canvasHeight = globalThis.player.canvas.height;
+    var scale = Math.min(canvasWidth / image.width, canvasHeight / image.height);
+    var newWidth = image.width * scale;
+    var newHeight = image.height * scale;
+    var x = (canvasWidth - newWidth) / 2;
+    var y = (canvasHeight - newHeight) / 2;
+    globalThis.player.context.drawImage(img, x, y, newWidth, newHeight);
+};
 window.addEventListener('load', async function() {
   var urlParams = new URLSearchParams(window.location.search);
   if(urlParams.get('id')) {
@@ -29,4 +39,5 @@ window.addEventListener('load', async function() {
   updatePlayerCanvasSize();
   window.addEventListener('resize', updatePlayerCanvasSize.bind(this));
   globalThis.player.canvas = playerCanvas;
+  globalThis.player.context = playerCanvas.getContext('2d');
 });
