@@ -1,7 +1,7 @@
 import "./constants.js"
 function addStyle(styleURL) {
   var element = document.createElement('link');
-  element.setAttribute('src', styleURL);
+  element.setAttribute('href', styleURL);
   element.setAttribute('rel', 'stylesheet');
   element.setAttribute('type', 'text/css');
   document.head.appendChild(element);
