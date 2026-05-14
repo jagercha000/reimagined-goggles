@@ -106,6 +106,7 @@ setTimeout(function() {
 }, 15000);
 var element = document.createElement('button');
 element.setAttribute('class', 'climate-season-button');
+element.innerText = "Change Season";
 element.addEventListener('click', function() {
   if(globalThis.player.climateData.animationActive) {
     return;
