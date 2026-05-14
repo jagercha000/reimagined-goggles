@@ -14,6 +14,7 @@ await registerImage("winter", "climate/winter.jpg");
 await registerImage("summer", "climate/summer.jpg");
 globalThis.player.climateData.currentSeason = "winter";
 async function climateFrame() {
+  globalThis.player.util.clearCanvas();
   if(globalThis.player.climateData.currentSeason == "winter") {
     globalThis.player.util.fitImage(globalThis.player.climateData.images.winter.image);
   } else if(globalThis.player.climateData.currentSeason == "summer") {
