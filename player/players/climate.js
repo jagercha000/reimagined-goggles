@@ -1,5 +1,6 @@
 globalThis.player.climateData = globalThis.player.climateData || new Object();
 globalThis.player.climateData.images = globalThis.player.climateData.images || new Object();
+globalThis.player.climateData.hitboxes = globalThis.player.climateData.hitboxes || new Object();
 globalThis.player.climateUtil = globalThis.player.climateUtil || new Object();
 var element = document.createElement('div');
 element.setAttribute('class', 'climate-loading');
@@ -10,15 +11,29 @@ async function registerImage(id, url) {
   globalThis.player.climateData.images[id].url = await globalThis.player.util.downloadImage(url);
   globalThis.player.climateData.images[id].image = new Image();
   globalThis.player.climateData.images[id].image.src = globalThis.player.climateData.images[id].url;
+  globalThis.player.climateData.hitboxes[id] = [];
 }
 await registerImage("winter", "climate/winter.jpg");
 await registerImage("summer", "climate/summer.jpg");
+globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 0, width: 50, height: 50 });
 globalThis.player.climateData.currentSeason = "winter";
 globalThis.player.climateData.nextSeason = null;
 globalThis.player.climateData.opacity = 1;
 globalThis.player.climateData.animationActive = false;
 globalThis.player.climateData.direction = -1;
 globalThis.player.climateData.mod = 0.05;
+globalThis.player.climateData.mouseCoords = { x: -1, y: -1 };
+function processHitboxes() {
+  var hitHitbox = false;
+  globalThis.player.climateData.hitboxes[globalThis.player.climateData.currentSeason].forEach(function(hitbox) {
+    var calulatedHitbox = globalThis.player.climateUtil.calculateHitbox(hitbox.x, hitbox.y, hitbox.width, hitbox.height);
+  });
+  if(hitHitbox) {
+    globalThis.player.util.setCursor("pointer");
+  } else {
+    globalThis.player.util.setCursor("default");
+  }
+}
 globalThis.player.climateUtil.calculateHitbox = function(x, y, width, height) {
   var image = globalThis.player.climateData.images[globalThis.player.climateData.currentSeason].image;
   var canvas = globalThis.player.canvas;
@@ -63,6 +78,7 @@ globalThis.player.climateUtil.changeSeason = function(newSeason) {
 async function climateFrame() {
   globalThis.player.util.clearCanvas();
   processFade();
+  processHitboxes();
   globalThis.player.context.globalAlpha = globalThis.player.climateData.opacity;
   if(globalThis.player.climateData.currentSeason == "winter") {
     globalThis.player.util.fitImage(globalThis.player.climateData.images.winter.image);
