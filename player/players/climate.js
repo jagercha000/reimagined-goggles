@@ -2,10 +2,6 @@ globalThis.player.climateData = globalThis.player.climateData || new Object();
 globalThis.player.climateData.images = globalThis.player.climateData.images || new Object();
 globalThis.player.climateData.hitboxes = globalThis.player.climateData.hitboxes || new Object();
 globalThis.player.climateUtil = globalThis.player.climateUtil || new Object();
-var element = document.createElement('div');
-element.setAttribute('class', 'climate-loading');
-element.innerText = "Loading";
-document.body.appendChild(element);
 async function registerImage(id, url) {
   globalThis.player.climateData.images[id] = new Object();
   globalThis.player.climateData.images[id].url = await globalThis.player.util.downloadImage(url);
@@ -129,11 +125,7 @@ window.requestAnimationFrame(climateFrame);
 globalThis.player.canvas.addEventListener('click', function(evt) {
   processHitboxes(true, evt);
 });
-setTimeout(function() {
-  gsap.fromTo('.climate-loading', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
-    document.querySelector('.climate-loading').classList.add('hidden');
-  }});
-}, 15000);
+globalThis.player.stopLoading();
 var element = document.createElement('button');
 element.setAttribute('class', 'climate-season-button');
 element.innerText = "Change Season";

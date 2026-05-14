@@ -1,5 +1,31 @@
 globalThis.player = globalThis.player || new Object();
 globalThis.player.util = globalThis.player.util || new Object();
+globalThis.player._pageLoaded = false;
+globalThis.player._playerLoaded = false;
+globalThis.player._loadedCallback = null;
+window.onmessage = function(evt) {
+  var message = evt.data;
+  if(message.type == 'LOAD') {
+    globalThis.player._pageLoaded = true;
+    globalThis.player.checkLoadState();
+  }
+};
+globalThis.player.checkLoadState = function() {
+  if(globalThis.player._playerLoaded && globalThis.player._gameLoaded) {
+    setTimeout(function() {
+      gsap.fromTo('.player-loading', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
+        if(globalThis.player._loadedCallback) {
+          globalThis.player._loadedCallback();
+        }
+      }});
+    }, 5000);
+  }
+};
+globalThis.player.stopLoading = function(callback=null) {
+  globalThis.player._loadedCallback = callback;
+  globalThis.player._playerLoaded = true;
+  globalThis.player.checkLoadState();
+};
 globalThis.player.util.downloadImage = async function(url) {
   var result = await fetch('../assets/' + url);
   var blob = await result.blob();
