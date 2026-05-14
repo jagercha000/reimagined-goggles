@@ -104,3 +104,18 @@ setTimeout(function() {
     document.querySelector('.climate-loading').classList.add('hidden');
   }});
 }, 15000);
+var element = document.createElement('button');
+element.setAttribute('class', 'climate-season-button');
+element.addEventListener('click', function() {
+  if(globalThis.player.climateData.animationActive) {
+    return;
+  }
+  var seasonIndex = globalThis.player.climateData.seasons.indexOf(globalThis.player.climateData.currentSeason);
+  seasonIndex += 1;
+  if(seasonIndex >= globalThis.player.climateData.seasons.length) {
+    seasonIndex = 0;
+  }
+  var newSeason = globalThis.player.climateData.seasons[seasonIndex];
+  globalThis.player.climateUtil.changeSeason(newSeason);
+});
+document.body.appendChild(element);
