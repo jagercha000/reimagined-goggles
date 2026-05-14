@@ -16,9 +16,9 @@ async function registerImage(id, url) {
 globalThis.player.climateUtil.showCaption = function(text, duration) {
   document.querySelector('.climate-caption-container').classList.remove('hidden');
   document.querySelector('.climate-caption').innerText = text;
-  gsap.fromTo('.climate-caption-container', { opacity: 0 }, { opacity: 1, duration: 1, onComplete: function() {
+  gsap.fromTo('.climate-caption-container', { opacity: 0 }, { opacity: 1, duration: 0.25, onComplete: function() {
     setTimeout(function() {
-      gsap.fromTo('.climate-caption-container', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
+      gsap.fromTo('.climate-caption-container', { opacity: 1 }, { opacity: 0, duration: 0.25, onComplete: function() {
         document.querySelector('.climate-caption-container').classList.add('hidden');
       }});
     }, duration);
@@ -26,11 +26,22 @@ globalThis.player.climateUtil.showCaption = function(text, duration) {
 };
 await registerImage("winter", "climate/winter.jpg");
 await registerImage("summer", "climate/summer.jpg");
-globalThis.player.climateData.hitboxes.summer.push({ x: 2676, y: 252, width: 222, height: 690, click: function() { globalThis.player.climateUtil.showCaption("Temp!", 2000); }});
-globalThis.player.climateData.hitboxes.summer.push({ x: 312, y: 147, width: 729, height: 204, click: function() { globalThis.player.climateUtil.showCaption("Rain!", 2000); }});
-globalThis.player.climateData.hitboxes.summer.push({ x: 0, y: 1311, width: 3000, height: 376, click: function() { globalThis.player.climateUtil.showCaption("Acid!", 2000); }});
-globalThis.player.climateData.hitboxes.winter.push({ x: 2676, y: 252, width: 222, height: 690, click: function() { globalThis.player.climateUtil.showCaption("Low Temp!", 2000); }});
-globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 1311, width: 3000, height: 376, click: function() { globalThis.player.climateUtil.showCaption("Permafrost!", 2000); }});
+globalThis.player.climateData.hitboxes.summer.push({ x: 2676, y: 252, width: 222, height: 690, click: function() {
+  globalThis.player.climateUtil.showCaption("Temp!", 4000);
+}});
+globalThis.player.climateData.hitboxes.summer.push({ x: 312, y: 147, width: 729, height: 204, click: function() {
+  globalThis.player.climateUtil.showCaption("Rain!", 4000);
+}});
+globalThis.player.climateData.hitboxes.summer.push({ x: 0, y: 1311, width: 3000, height: 376, click: function() {
+  globalThis.player.climateUtil.showCaption("Acid!", 4000);
+}});
+globalThis.player.climateData.hitboxes.winter.push({ x: 2676, y: 252, width: 222, height: 690, click: function() {
+  globalThis.player.climateUtil.showCaption("Low Temp!", 4000);
+}});
+globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 1311, width: 3000, height: 376, click: function() {
+  
+  globalThis.player.climateUtil.showCaption("Permafrost!", 4000);
+}});
 globalThis.player.climateData.currentSeason = "winter";
 globalThis.player.climateData.nextSeason = null;
 globalThis.player.climateData.opacity = 1;
