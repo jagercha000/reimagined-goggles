@@ -1,9 +1,8 @@
 import "./constants.js"
-async function addStyle(styleURL) {
-  var result = await fetch(styleURL);
-  var content = await result.text();
-  var element = document.createElement('style');
-  element.textContent = content;
+function addStyle(styleURL) {
+  var element = document.createElement('link');
+  element.setAttribute('src', styleURL);
+  element.setAttribute('rel', 'stylesheet');
   element.setAttribute('type', 'text/css');
   document.head.appendChild(element);
 }
