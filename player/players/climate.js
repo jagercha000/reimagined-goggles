@@ -18,6 +18,22 @@ globalThis.player.climateData.opacity = 1;
 globalThis.player.climateData.animationActive = false;
 globalThis.player.climateData.direction = -1;
 globalThis.player.climateData.mod = 0.05;
+function calculateHitbox(x, y, width, height) {
+  var image = globalThis.player.climateData.images[globalThis.player.climateData.currentSeason].image;
+  var canvas = globalThis.player.canvas;
+  var hRatio = canvas.width / image.width;
+  var vRatio = canvas.height / image.height;
+  var ratio = Math.min(hRatio, vRatio);
+  var centerX = (canvas.width - image.width * ratio) / 2;
+  var centerY = (canvas.height - image.height * ratio) / 2;
+  var scaledWidth = image.width * ratio;
+  var scaledHeight = image.height * ratio;
+  var newX = (x * ratio) + centerX;
+  var newY = (y * ratio) + centerY;
+  var newWidth = width * ratio;
+  var newHeight = height * ratio;
+  return { x: newX, y: newY, width: newWidth, height: newHeight };
+}
 function processFade() {
   if(globalThis.player.climateData.nextSeason != null) {
     globalThis.player.climateData.animationActive = true;
