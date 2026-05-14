@@ -13,13 +13,28 @@ async function registerImage(id, url) {
 await registerImage("winter", "climate/winter.jpg");
 await registerImage("summer", "climate/summer.jpg");
 globalThis.player.climateData.currentSeason = "winter";
+globalThis.player.climateData.nextSeason = null;
+globalThis.player.climateData.opacity = 1;
+globalThis.player.climateData.animationActive = false;
+globalThis.player.climateData.direction = -1;
+globalThis.player.climateData.mod = 0.01;
+function processFade() {
+  if(globalThis.player.climateData.nextSeason != null) {
+    globalThis.player.climateData.animationActive = true;
+  } else {
+    globalThis.player.climateData.animationActive = false;
+  }
+}
 async function climateFrame() {
   globalThis.player.util.clearCanvas();
+  processFade();
+  globalThis.player.context.globalAlpha = globalThis.player.climateData.opacity;
   if(globalThis.player.climateData.currentSeason == "winter") {
     globalThis.player.util.fitImage(globalThis.player.climateData.images.winter.image);
   } else if(globalThis.player.climateData.currentSeason == "summer") {
     globalThis.player.util.fitImage(globalThis.player.climateData.images.summer.image);
   }
+  globalThis.player.context.globalAlpha = 1;
   window.requestAnimationFrame(climateFrame);
 }
 window.requestAnimationFrame(climateFrame);
