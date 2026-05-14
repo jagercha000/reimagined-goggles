@@ -13,11 +13,11 @@ function addScript(url) {
   element.setAttribute('type', 'text/javascript');
   document.head.appendChild(element);
 }
+addStyle(sitePath + "styles/global.css");
+addStyle(sitePath + "styles/error.css");
+addScript(sitePath + "lib/gsap.js");
+addScript(sitePath + "scripts/global.js");
 window.addEventListener('load', async function() {
-  addStyle(sitePath + "styles/global.css");
-  addStyle(sitePath + "styles/error.css");
-  addScript(sitePath + "lib/gsap.js");
-  addScript(sitePath + "scripts/global.js");
   document.querySelector('.error-back-button').addEventListener('click', function() {
     window.history.go(-1);
   });
