@@ -14,6 +14,7 @@ globalThis.player.checkLoadState = function() {
   if(globalThis.player._playerLoaded && globalThis.player._pageLoaded) {
     setTimeout(function() {
       gsap.fromTo('.player-loading', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
+        document.querySelector('.player-loading').classList.add('hidden');
         if(globalThis.player._loadedCallback) {
           globalThis.player._loadedCallback();
         }
