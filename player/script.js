@@ -1,6 +1,6 @@
 globalThis.player = globalThis.player || new Object();
 globalThis.player.util = globalThis.player.util || new Object();
-globalThis.player.util.downloadImage = function(url) {
+globalThis.player.util.downloadImage = async function(url) {
   var result = await fetch('../assets/' + url);
   var blob = await result.blob();
   return URL.createObjectURL(blob);
