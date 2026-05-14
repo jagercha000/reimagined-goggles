@@ -15,7 +15,7 @@ async function registerImage(id, url) {
 }
 await registerImage("winter", "climate/winter.jpg");
 await registerImage("summer", "climate/summer.jpg");
-globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 0, width: 50, height: 50 });
+globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 0, width: 50, height: 50, click: function() { alert("Click!"); }});
 globalThis.player.climateData.currentSeason = "winter";
 globalThis.player.climateData.nextSeason = null;
 globalThis.player.climateData.opacity = 1;
@@ -23,17 +23,21 @@ globalThis.player.climateData.animationActive = false;
 globalThis.player.climateData.direction = -1;
 globalThis.player.climateData.mod = 0.05;
 globalThis.player.climateData.seasons = [ "winter", "summer" ];
-function processHitboxes() {
+function processHitboxes(click, evt) {
   var hitHitbox = false;
   globalThis.player.climateData.hitboxes[globalThis.player.climateData.currentSeason].forEach((function(hitbox) {
     var calculatedHitbox = globalThis.player.climateUtil.calculateHitbox(hitbox.x, hitbox.y, hitbox.width, hitbox.height);
-    var mousePos = globalThis.player.util.getMouseCoords();
+    var mousePos = null;
+    mousePos = globalThis.player.util.getMouseCoords();
     if(globalThis.player.util.collision(mousePos.x, mousePos.y, 0, 0, calculatedHitbox.x, calculatedHitbox.y, calculatedHitbox.width, calculatedHitbox.height)) {
-      hitHitbox = true;
-  }
+      hitHitbox = hitbox;
+    }
   }).bind(this));
   if(hitHitbox) {
     globalThis.player.util.setCursor("pointer");
+    if(click) {
+      hitHitbox.click(evt);
+    }
   } else {
     globalThis.player.util.setCursor("default");
   }
@@ -82,7 +86,7 @@ globalThis.player.climateUtil.changeSeason = function(newSeason) {
 async function climateFrame() {
   globalThis.player.util.clearCanvas();
   processFade();
-  processHitboxes();
+  processHitboxes(false, null);
   globalThis.player.context.globalAlpha = globalThis.player.climateData.opacity;
   if(globalThis.player.climateData.currentSeason == "winter") {
     globalThis.player.util.fitImage(globalThis.player.climateData.images.winter.image);
@@ -93,6 +97,9 @@ async function climateFrame() {
   window.requestAnimationFrame(climateFrame);
 }
 window.requestAnimationFrame(climateFrame);
+globalThis.player.canvas.addEventListener('click', function(evt) {
+  processHitboxes(true, evt);
+});
 setTimeout(function() {
   gsap.fromTo('.climate-loading', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
     document.querySelector('.climate-loading').classList.add('hidden');
