@@ -11,7 +11,7 @@ window.onmessage = function(evt) {
   }
 };
 globalThis.player.checkLoadState = function() {
-  if(globalThis.player._playerLoaded && globalThis.player._gameLoaded) {
+  if(globalThis.player._playerLoaded && globalThis.player._pageLoaded) {
     setTimeout(function() {
       gsap.fromTo('.player-loading', { opacity: 1 }, { opacity: 0, duration: 1, onComplete: function() {
         if(globalThis.player._loadedCallback) {

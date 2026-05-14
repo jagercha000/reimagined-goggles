@@ -24,4 +24,6 @@ html, body {
   align-content: center;
   justify-content: center;
   background: #000000;
+  user-select: none;
+  cursor: default;
 }
