@@ -38,7 +38,7 @@ jobs:
           git checkout deploy
           
           # Merge main changes into deploy branch
-          git merge origin/main --allow-unrelated-histories -m "chore: auto-sync main to deploy"
+          git merge origin/main --no-ff --allow-unrelated-histories -m "chore: auto-sync main to deploy"
           
           # Push the changes straight back up to GitHub
           git push origin deploy
