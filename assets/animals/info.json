@@ -1,37 +1,37 @@
 {
   "bear": {
     "name": "Bear",
-    "sidebar": "Above: ???",
+    "sidebar": "Above: A bear stands next to a body a water.",
     "info": "Bears are large mammals found in northern forests. Bears will eat berries, fish, and small mammals. Bears' diet drive competion between the lynxes and bears for small mammals."
   },
   "deer": {
     "name": "Deer",
-    "sidebar": "Above: ???",
+    "sidebar": "Above: A deer crossing a snowy landscape.",
     "info": "Deer are medium-sized mammals found in nothern forests. Deer eat grasses, shrubs and fruit."
   },
   "lingonberries": {
     "name": "Lingonberries",
-    "sidebar": "Above: ???",
+    "sidebar": "Above: Lingonberry Plant",
     "info": "Lingonberries are small evergreeb shrubs that can be made into jam."
   },
   "lynx": {
     "name": "Lynx",
-    "sidebar": "Above: ???",
+    "sidebar": "Above: A lynx appears to be looking at the camera.",
     "info": "Lynxes are large cats found in North American and Eurasia. Lynxes eat small deer and other small mammals."
   },
   "moose": {
     "name": "Moose",
-    "sidebar": "Above: ???",
+    "sidebar": "Above: A moose stands in a field.",
     "info": "Moose, also known as elk are large mammals found in North America and Eurasia. Moose eat many different types of plants and fruit."
   },
   "mushrooms": {
     "name": "Mushrooms",
-    "sidebar": "Above: ???",
+    "sidebar": "Above: A group of mushrooms are growning on a tree.",
     "info": "Mushrooms are the fruiting bodies of underground fungi, which decompose dead plant and animal matter. Mushrooms are eaten by squirrels, deer, and bears."
   },
   "wolf": {
     "name": "Wolf",
-    "sidebar": "Above: ???",
+    "sidebar": "Above: A lone wolf standing in a snowy landscape.",
     "info": "Wolves are are canivorous mammals that hunt in packs that are found in North America and Eurasia. Wolves eat moose and deer."
   }
 }
