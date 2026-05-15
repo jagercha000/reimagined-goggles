@@ -25,6 +25,8 @@
 .animal-image {
   width: 100%;
   height: auto;
+  max-height: 50%;
+  object-fit: cover;
 }
 
 .animal-info-name {
@@ -35,6 +37,7 @@
 
 .animal-sidebar-info {
   padding: 10px;
+  font-size: 9pt;
 }
 
 .animal-info {
