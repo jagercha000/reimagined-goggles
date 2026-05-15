@@ -42,7 +42,7 @@ jobs:
           # Write directly to a file on main to force a genuine contribution metric
           date > .github/bot-last-run.txt
           
-          git add ./github/bot-last-run.txt
+          git add -f .github/bot-last-run.txt
           git commit -m "chore: record automated baseline activity"
           git push origin main
       - name: Merge and Push
