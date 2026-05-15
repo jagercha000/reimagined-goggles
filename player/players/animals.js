@@ -4,8 +4,17 @@ globalThis.player.animalData.background = new Image();
 globalThis.player.animalData.background.src = await globalThis.player.util.downloadImage("animals/animals.jpg");
 globalThis.player.animalData.animals = globalThis.player.animalData.animals || new Object();
 globalThis.player.animalData.noInteract = false;
-globalThis.player.animalUtil.info = function(animal) {};
-globalThis.player.animalUtil.closeInfo = function(animal) {};
+globalThis.player.animalUtil.info = function(animal) {
+  var selector = `.animal-info-dialog[data-animal="${animal}"]`;
+  document.querySelector(selector).classList.remove('hidden');
+  gsap.fromTo(selector, { opacity: 0 }, { opacity: 1, duration: 1 });
+};
+globalThis.player.animalUtil.closeInfo = function(animal) {
+  var selector = `.animal-info-dialog[data-animal="${animal}"]`;
+  gsap.fromTo(selector, { opacity: 1 }, { opacity: 0, duration: 1, onComplete: (function() {
+    document.querySelector(selector).classList.add('hidden');
+  }).bind(this) });
+};
 globalThis.player.animalData.hitboxes = [];
 globalThis.player.animalData.hitboxes.push({ x: 40, y: 349, width: 108, height: 67, click: function() { globalThis.player.animalUtil.info("wolf"); }});
 globalThis.player.animalData.hitboxes.push({ x: 217, y: 334, width: 83, height: 82, click: function() { globalThis.player.animalUtil.info("deer"); }});
@@ -48,6 +57,7 @@ async function registerAnimal(animal, name, sidebarInfo, info) {
   infoElement.setAttribute('class', 'animal-info');
   infoElement.innerHTML = info;
   element.appendChild(infoElement);
+  document.body.appendChild(element);
 }
 await registerAnimal('bear', `Bear`, `Sidebar Info`, `Info`);
 await registerAnimal('deer', `Deer`, `Sidebar Info`, `Info`);
