@@ -72,7 +72,7 @@ body {
 }
 
 .dropdown-active main {
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 main {
