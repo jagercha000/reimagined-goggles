@@ -31,3 +31,7 @@
   background-position: 0% 0%;
   animation: panBackground 240s linear infinite;
 }
+
+.home-hero-content {
+  text-align: center;
+}
