@@ -14,5 +14,9 @@
   "overlay": {
     "hex": "#000000",
     "alpha": 0.5
+  },
+  "arrow": {
+    "hex": "#ff0000",
+    "alpha": 1
   }
 }
