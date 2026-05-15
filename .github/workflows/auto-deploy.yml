@@ -9,7 +9,7 @@ on:
 
 jobs:
   git-merge-sync:
-  - name: Merge Branches
+    name: Merge Branches
     runs-on: ubuntu-latest
     permissions:
       contents: write # Grants git permission to push code directly
