@@ -1,5 +1,6 @@
 {
   "tree": {
+    "name": "Tree",
     "type": "plant",
     "role": "producer",
     "predators": [
@@ -9,6 +10,7 @@
     "prey": []
   },
   "lingonberries": {
+    "name": "Lingonberries",
     "type": "plant",
     "role": "producer",
     "predators": [
@@ -18,6 +20,7 @@
     "prey": []
   },
   "grass": {
+    "name": "Grass",
     "type": "plant",
     "role": "producer",
     "predators": [
@@ -28,6 +31,7 @@
     "prey": []
   },
   "fish": {
+    "name": "Fish",
     "type": "animal",
     "role": "consumer",
     "predators": [
@@ -36,6 +40,7 @@
     "prey": []
   },
   "mushrooms": {
+    "name": "Mushrooms",
     "type": "fungi",
     "role": "decomposer",
     "predators": [],
@@ -44,6 +49,7 @@
     ]
   },
   "deer": {
+    "name": "Deer",
     "type": "animal",
     "role": "consumer",
     "predators": [
@@ -56,6 +62,7 @@
     ]
   },
   "moose": {
+    "name": "Moose",
     "type": "animal",
     "role": "consumer",
     "predators": [
@@ -68,6 +75,7 @@
     ]
   },
   "mouse": {
+    "name": "Small Mammals",
     "type": "animal",
     "role": "consumer",
     "predators": [
@@ -78,6 +86,7 @@
     ]
   },
   "wolf": {
+    "name": "Wolf",
     "type": "animal",
     "role": "secondary-consumer",
     "predators": [],
@@ -87,6 +96,7 @@
     ]
   },
   "lynx": {
+    "name": "Lynx",
     "type": "animal",
     "role": "secondary-consumer",
     "predators": [],
@@ -95,6 +105,7 @@
     ]
   },
   "bear": {
+    "name": "Bear",
     "type": "animal",
     "role": "secondary-consumer",
     "predators": [],
