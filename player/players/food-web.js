@@ -10,8 +10,16 @@ function hit(id) {
 }
 var result = await globalThis.player.util.fetchAsset('food-web/relations.json');
 globalThis.player.foodData.relations = await result.json();
+globalThis.player.foodData.animals = new Object();
+var keys = Object.keys(globalThis.player.foodData.relations);
+for(var i=0;i<keys.length;i++) {
+  globalThis.player.foodData.animals[animal] = new Object();
+  globalThis.player.foodData.animals[animal].url = await globalThis.player.util.downloadImage('food-web/images/animals/' + animal + '.png');
+  globalThis.player.foodData.animals[animal].image = new Image();
+  globalThis.player.foodData.animals[animal].image.src = globalThis.player.foodData.animals[animal].url;
+}
 var colorResult = await globalThis.player.util.fetchAsset('food-web/colors.json');
-globalThis.player.foodData.color = await colorResult.json();
+globalThis.player.foodData.colors = await colorResult.json();
 var hitboxResult = await globalThis.player.util.fetchAsset('food-web/hitboxes.json');
 globalThis.player.foodData.hitboxes = await hitboxResult.json();
 globalThis.player.foodUtil.highlightAnimal = function(animal, fill, alpha) {
@@ -50,7 +58,7 @@ function processHitboxes(click, evt) {
   if(hitHitbox) {
     globalThis.player.util.setCursor("pointer");
     if(click) {
-      hitHitbox.click(evt);
+      hit(hitbox.id);
     }
   } else {
     globalThis.player.util.setCursor("default");
@@ -75,10 +83,17 @@ globalThis.player.foodUtil.calculateHitbox = function(x, y, width, height) {
 function foodWebFrame() {
   processHitboxes(false, null);
   globalThis.player.util.fitImage(globalThis.player.foodData.background.image);
-  globalThis.player.content.globalAlpha = globalThis.player.foodData.colors.overlay.alpha;
+  globalThis.player.context.globalAlpha = globalThis.player.foodData.colors.overlay.alpha;
   globalThis.player.context.fillStyle = globalThis.player.foodData.colors.overlay.hex;
   var canvas = globalThis.player.canvas;
   globalThis.player.context.fillRect(0, 0, canvas.width, canvas.height);
+  var keys = Object.keys(globalThis.player.animals);
+  for(var i=0;i<keys.length;i++) {
+    var key = keys[i];
+    var rawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == key)[0];
+    var rect = globalThis.player.foodUtil.calculateHitbox(rawRect.x, rawRect.y, rawRect.width, rawRect.height);
+    globalThis.player.context.drawImage(globalThis.player.animals[key].image, rect.x, rect.y, rect.width, rect.height);
+  }
   globalThis.player.foodUtil.highlightAnimal("deer", globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
   window.requestAnimationFrame(foodWebFrame);
 }
