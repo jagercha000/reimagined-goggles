@@ -43,7 +43,7 @@ jobs:
           date > .github/bot-last-run.txt
           
           git add -f .github/bot-last-run.txt
-          git commit -m "chore: record automated baseline activity"
+          git commit -m "chore: record last activity"
           git push origin main
       - name: Merge and Push
         run: |
@@ -54,7 +54,7 @@ jobs:
           git checkout deploy
           
           # Merge main changes into deploy branch
-          git merge origin/main --no-ff --allow-unrelated-histories -m "chore: auto-sync main to deploy"
+          git merge origin/main --no-ff --allow-unrelated-histories -m "chore: deploy website"
           
           # Push the changes straight back up to GitHub
           git push origin deploy
