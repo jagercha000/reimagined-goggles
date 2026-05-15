@@ -3,4 +3,10 @@ window.addEventListener('load', function() {
   document.querySelector('.abiotic-factors-button').addEventListener('click', function() {
     window.location.href = 'abiotic-factors.html';
   });
+  document.querySelector('.biotic-factors-button').addEventListener('click', function() {
+    window.location.href = 'biotic-factors.html';
+  });
+  document.querySelector('.predator-prey-button').addEventListener('click', function() {
+    window.location.href = 'predator-prey.html';
+  });
 });
