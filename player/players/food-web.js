@@ -11,7 +11,7 @@ function hit(id) {
 var result = await globalThis.player.util.fetchAsset('food-web/relations.json');
 globalThis.player.foodData.relations = await result.json();
 var colorResult = await globalThis.player.util.fetchAsset('food-web/colors.json');
-globalThis.player.foodData.color = await colorResult.json();
+globalThis.player.foodData.colors = await colorResult.json();
 var hitboxResult = await globalThis.player.util.fetchAsset('food-web/hitboxes.json');
 globalThis.player.foodData.hitboxes = await hitboxResult.json();
 globalThis.player.foodUtil.highlightAnimal = function(animal, fill, alpha) {
@@ -50,7 +50,7 @@ function processHitboxes(click, evt) {
   if(hitHitbox) {
     globalThis.player.util.setCursor("pointer");
     if(click) {
-      hitHitbox.click(evt);
+      hit(hitbox.id);
     }
   } else {
     globalThis.player.util.setCursor("default");
@@ -75,7 +75,7 @@ globalThis.player.foodUtil.calculateHitbox = function(x, y, width, height) {
 function foodWebFrame() {
   processHitboxes(false, null);
   globalThis.player.util.fitImage(globalThis.player.foodData.background.image);
-  globalThis.player.content.globalAlpha = globalThis.player.foodData.colors.overlay.alpha;
+  globalThis.player.context.globalAlpha = globalThis.player.foodData.colors.overlay.alpha;
   globalThis.player.context.fillStyle = globalThis.player.foodData.colors.overlay.hex;
   var canvas = globalThis.player.canvas;
   globalThis.player.context.fillRect(0, 0, canvas.width, canvas.height);
