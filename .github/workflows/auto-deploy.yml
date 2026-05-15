@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # Grants git permission to push code directly
+      packages: read
       statuses: write
     steps:
       - name: Checkout Code
@@ -26,6 +27,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: false # Only inspect files modified in the current push
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USE_FIND_ALGORITHM: true     # 2. Use file lookup instead of git diff rules
           
           # Explicitly enable only the web engines you need
           VALIDATE_HTML: true       # Uses HTMLHint
