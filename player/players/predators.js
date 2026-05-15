@@ -1,10 +1,12 @@
 globalThis.player.predatorsData = globalThis.player.predatorsData || new Object();
+globalThis.player.predatorsUtil = globalThis.player.predatorsUtil || new Object();
 globalThis.player.predatorsData.background = new Object();
 globalThis.player.predatorsData.background.url = await globalThis.player.util.downloadImage('predator-prey/predators.jpg');
 globalThis.player.predatorsData.background.image = new Image();
 globalThis.player.predatorsData.background.image.src = globalThis.player.predatorsData.background.url;
 globalThis.player.predatorsData.noInteract = false;
 globalThis.player.predatorsData.hitboxes = [];
+globalThis.player.predatorsData.hitboxes.push({ x: 0, y: 0, width: 50, height: 50, click: function() { alert("Click!"); });
 function processHitboxes(click, evt) {
   if(globalThis.player.predatorsData.noInteract) {
     return;
