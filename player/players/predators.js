@@ -6,6 +6,12 @@ globalThis.player.predatorsData.background.image = new Image();
 globalThis.player.predatorsData.background.image.src = globalThis.player.predatorsData.background.url;
 globalThis.player.predatorsData.noInteract = false;
 globalThis.player.predatorsData.hitboxes = [];
+function hit(id) {
+  alert(id);
+}
+globalThis.player.predatorsData.hitboxes.push({ x: 53, y: 351, width: 95, height: 60, click: function() { hit("wolf"); }});
+globalThis.player.predatorsData.hitboxes.push({ x: 357, y: 344, width: 30, height: 70, click: function() { hit("lynx"); }});
+globalThis.player.predatorsData.hitboxes.push({ x: 819, y: 346, width: 125, height: 72, click: function() { hit("bear"); }});
 function processHitboxes(click, evt) {
   if(globalThis.player.predatorsData.noInteract) {
     return;
