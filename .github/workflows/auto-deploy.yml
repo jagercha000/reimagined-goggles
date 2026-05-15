@@ -29,7 +29,22 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@://github.com"
-
+      - name: Record Activity
+        env:
+          GIT_AUTHOR_NAME: "github-actions[bot]"
+          GIT_AUTHOR_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
+          GIT_COMMITTER_NAME: "github-actions[bot]"
+          GIT_COMMITTER_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p .github
+          # Write directly to a file on main to force a genuine contribution metric
+          date > .github/bot-last-run.txt
+          
+          git add -f .github/bot-last-run.txt
+          git commit -m "chore: record automated baseline activity"
+          git push origin main
       - name: Merge and Push
         run: |
           # Fetch the deploy branch locally
