@@ -9,6 +9,7 @@ globalThis.player.climateData.captions.AUTUMN_TEMPERATURE = "Autumn in taigas is
 globalThis.player.climateData.captions.PERMAFROST = "Taigas have a layer of permafrost, where soil is frozen year-round. The means that nutrients are poor, making it difficult for plants to grow.";
 globalThis.player.climateData.captions.ACIDIC = "Soil in taigias is acidic, which makes it hard for plants to grow.";
 globalThis.player.climateData.captions.RAIN = "Taigais receive little rainfall, often only 8 to 31 inches each year.";
+globalThis.player.climateData.captionTime = 4000;
 globalThis.player.climateUtil = globalThis.player.climateUtil || new Object();
 async function registerImage(id, url) {
   globalThis.player.climateData.images[id] = new Object();
@@ -20,9 +21,9 @@ async function registerImage(id, url) {
 globalThis.player.climateUtil.showCaption = function(text, duration) {
   document.querySelector('.climate-caption-container').classList.remove('hidden');
   document.querySelector('.climate-caption').innerText = text;
-  gsap.fromTo('.climate-caption-container', { opacity: 0 }, { opacity: 1, duration: 0.25, onComplete: function() {
+  gsap.fromTo('.climate-caption-container', { opacity: 0 }, { opacity: 1, duration: 0.5, onComplete: function() {
     setTimeout(function() {
-      gsap.fromTo('.climate-caption-container', { opacity: 1 }, { opacity: 0, duration: 0.25, onComplete: function() {
+      gsap.fromTo('.climate-caption-container', { opacity: 1 }, { opacity: 0, duration: 0.5, onComplete: function() {
         document.querySelector('.climate-caption-container').classList.add('hidden');
       }});
     }, duration);
@@ -33,31 +34,31 @@ await registerImage("spring", "climate/spring.jpg");
 await registerImage("summer", "climate/summer.jpg");
 await registerImage("autumn", "climate/autumn.jpg");
 globalThis.player.climateData.hitboxes.spring.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SPRING_TEMPERATURE, 2000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SPRING_TEMPERATURE, globalThis.player.climateData.captionTime);
 }});
 globalThis.player.climateData.hitboxes.spring.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, 2000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, globalThis.player.climateData.captionTime);
 }});
 globalThis.player.climateData.hitboxes.summer.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SUMMER_TEMPERATURE, 2000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.SUMMER_TEMPERATURE, globalThis.player.climateData.captionTime);
 }});
 globalThis.player.climateData.hitboxes.summer.push({ x: 373, y: 167, width: 853, height: 224, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.RAIN, 2000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.RAIN, globalThis.player.climateData.captionTime);
 }});
 globalThis.player.climateData.hitboxes.summer.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.ACIDIC, 2000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.ACIDIC, globalThis.player.climateData.captionTime);
 }});
 globalThis.player.climateData.hitboxes.autumn.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.AUTUMN_TEMPERATURE, 2000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.AUTUMN_TEMPERATURE, globalThis.player.climateData.captionTime);
 }});
 globalThis.player.climateData.hitboxes.autumn.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, 2000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, globalThis.player.climateData.captionTime);
 }});
 globalThis.player.climateData.hitboxes.winter.push({ x: 3179, y: 199, width: 270, height: 993, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.WINTER_TEMPERATURE, 2000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.WINTER_TEMPERATURE, globalThis.player.climateData.captionTime);
 }});
 globalThis.player.climateData.hitboxes.winter.push({ x: 0, y: 1551, width: 3556, height: 449, click: function() {
-  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, 2000);
+  globalThis.player.climateUtil.showCaption(globalThis.player.climateData.captions.PERMAFROST, globalThis.player.climateData.captionTime);
 }});
 globalThis.player.climateData.currentSeason = "winter";
 globalThis.player.climateData.nextSeason = null;
