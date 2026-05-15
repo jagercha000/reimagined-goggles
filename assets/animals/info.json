@@ -1,7 +1,37 @@
 {
   "bear": {
     "name": "Bear",
-    "sidebar": `Sidebar`,
-    "info": `Info`,
+    "sidebar": "Sidebar",
+    "info": "Info"
+  },
+  "deer": {
+    "name": "Deer",
+    "sidebar": "Sidebar",
+    "info": "Info"
+  },
+  "lingonberries": {
+    "name": "Lingonberries",
+    "sidebar": "Sidebar",
+    "info": "Info"
+  },
+  "lynx": {
+    "name": "Lynx",
+    "sidebar": "Sidebar",
+    "info": "Info"
+  },
+  "moose": {
+    "name": "Moose",
+    "sidebar": "Sidebar",
+    "info": "Info"
+  },
+  "mushrooms": {
+    "name": "Mushrooms",
+    "sidebar": "Sidebar",
+    "info": "Info"
+  },
+  "wolf": {
+    "name": "Wolf",
+    "sidebar": "Sidebar",
+    "info": "Info"
   }
 }
