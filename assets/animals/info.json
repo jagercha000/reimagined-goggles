@@ -1,8 +1,8 @@
 {
   "bear": {
     "name": "Bear",
-    "sidebar": "Sidebar",
-    "info": "Info"
+    "sidebar": "Bears are large mammals found in northern forests.",
+    "info": "Bears eat berries, fish, and small mammals. Bears' diet drive competion between the lynxes and bears for small mammals."
   },
   "deer": {
     "name": "Deer",
