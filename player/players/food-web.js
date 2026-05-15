@@ -20,6 +20,21 @@ globalThis.player.foodData.hitboxes.push({ id: "fish", x: 121, y: 261, width: 65
 globalThis.player.foodData.hitboxes.push({ id: "bear", x: 514, y: 71, width: 119, height: 65, click: function() { hit("bear"); }});
 globalThis.player.foodData.hitboxes.push({ id: "lynx", x: 399, y: 68, width: 43, height: 71, click: function() { hit("lynx"); }});
 globalThis.player.foodData.hitboxes.push({ id: "wolf", x: 223, y: 69, width: 110, height: 67, click: function() { hit("wolf"); }});
+globalThis.player.foodUtil.fillEllipseRect = function(x, y, width, height, fill, alpha) {
+  globalThis.player.context.fillStyle = fill;
+  globalThis.player.context.globalAlpha = alpha;
+  globalThis.player.context.beginPath();
+  var centerX = x + (width / 2);
+  var centerY = y + (height / 2);
+  var radiusX = width / 2;
+  var radiusY = height / 2;
+  var rotation = Math.PI / 4;
+  var startAngle = 0;
+  var endAngle = 2 * Math.PI;
+  globalThis.player.context.ellipse(centerX, centerY, radiusX, radiusY, rotation, startAngle, endAngle);
+  globalThis.player.context.fill();
+  globalThis.player.context.globalAlpha = 1;
+};
 function processHitboxes(click, evt) {
   if(globalThis.player.foodData.noInteract) {
     return;
@@ -61,6 +76,8 @@ globalThis.player.foodUtil.calculateHitbox = function(x, y, width, height) {
 function foodWebFrame() {
   processHitboxes(false, null);
   globalThis.player.util.fitImage(globalThis.player.foodData.background.image);
+  var rect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == "deer")[0];
+  globalThis.player.foodUtil.fillEllipseRect(rect.x, rect.y, rect.width, rect.height, "#ffff00", 0.5);
   window.requestAnimationFrame(foodWebFrame);
 }
 window.requestAnimationFrame(foodWebFrame);
