@@ -1,13 +1,79 @@
 [
-  { id: "grass", x: 576, y: 451, width: 86, height: 39 },
-  { id: "lingonberries", x: 461, y: 438, width: 77, height: 49 },
-  { id: "tree", x: 320, y: 414, width: 78, height: 85 },
-  { id: "mouse", x: 665, y: 281, width: 81, height: 44 },
-  { id: "moose", x: 531, y: 262, width: 78, height: 70 },
-  { id: "deer", x: 357, y: 242, width: 85, height: 99 },
-  { id: "mushrooms", x: 238, y: 285, width: 84, height: 27 },
-  { id: "fish", x: 121, y: 261, width: 65, height: 75 },
-  { id: "bear", x: 514, y: 71, width: 119, height: 65 },
-  { id: "lynx", x: 399, y: 68, width: 43, height: 71 },
-  { id: "wolf", x: 223, y: 69, width: 110, height: 67 }
+  {
+    "id": "grass",
+    "x": 576,
+    "y": 451,
+    "width": 86,
+    "height": 39
+  },
+  {
+    "id": "lingonberries",
+    "x": 461,
+    "y": 438,
+    "width": 77,
+    "height": 49
+  },
+  {
+    "id": "tree",
+    "x": 320,
+    "y": 414,
+    "width": 78,
+    "height": 85
+  },
+  {
+    "id": "mouse",
+    "x": 665,
+    "y": 281,
+    "width": 81,
+    "height": 44
+  },
+  {
+    "id": "moose",
+    "x": 531,
+    "y": 262,
+    "width": 78,
+    "height": 70
+  },
+  {
+    "id": "deer",
+    "x": 357,
+    "y": 242,
+    "width": 85,
+    "height": 99
+  },
+  {
+    "id": "mushrooms",
+    "x": 238,
+    "y": 285,
+    "width": 84,
+    "height": 27
+  },
+  {
+    "id": "fish",
+    "x": 121,
+    "y": 261,
+    "width": 65,
+    "height": 75
+  },
+  {
+    "id": "bear",
+    "x": 514,
+    "y": 71,
+    "width": 119,
+    "height": 65
+  },
+  {
+    "id": "lynx",
+    "x": 399,
+    "y": 68,
+    "width": 43,
+    "height": 71
+  },
+  {
+    "id": "wolf",
+    "x": 223,
+    "y": 69,
+    "width": 110,
+    "height": 67
+  }
 ]
