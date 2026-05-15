@@ -30,7 +30,7 @@ function processHitboxes(click, evt) {
   }
 }
 globalThis.player.predatorsUtil.calculateHitbox = function(x, y, width, height) {
-  var image = globalThis.player.predatorsData.background;
+  var image = globalThis.player.predatorsData.background.image;
   var canvas = globalThis.player.canvas;
   var hRatio = canvas.width / image.width;
   var vRatio = canvas.height / image.height;
