@@ -7,7 +7,7 @@ globalThis.player.foodData.background.image.src = globalThis.player.foodData.bac
 globalThis.player.foodData.noInteract = false;
 globalThis.player.foodData.hitboxes = [];
 function hit(id) {
-  alert(id);
+  alert(globalThis.player.foodData.relations[id].name);
 }
 globalThis.player.foodData.hitboxes.push({ id: "grass", x: 576, y: 451, width: 86, height: 39, click: function() { hit("grass"); }});
 globalThis.player.foodData.hitboxes.push({ id: "lingonberries", x: 461, y: 438, width: 77, height: 49, click: function() { hit("lingonberries"); }});
