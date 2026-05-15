@@ -10,6 +10,14 @@ function hit(id) {
 }
 var result = await globalThis.player.util.fetchAsset('food-web/relations.json');
 globalThis.player.foodData.relations = await result.json();
+globalThis.player.foodData.animals = new Object();
+var keys = Object.keys(globalThis.player.foodData.relations);
+for(var i=0;i<keys.length;i++) {
+  globalThis.player.foodData.animals[animal] = new Object();
+  globalThis.player.foodData.animals[animal].url = await globalThis.player.util.downloadImage('food-web/images/animals/' + animal + '.png');
+  globalThis.player.foodData.animals[animal].image = new Image();
+  globalThis.player.foodData.animals[animal].image.src = globalThis.player.foodData.animals[animal].url;
+}
 var colorResult = await globalThis.player.util.fetchAsset('food-web/colors.json');
 globalThis.player.foodData.colors = await colorResult.json();
 var hitboxResult = await globalThis.player.util.fetchAsset('food-web/hitboxes.json');
