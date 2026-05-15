@@ -1,27 +1,19 @@
 globalThis.player.foodData = globalThis.player.foodData || new Object();
 globalThis.player.foodUtil = globalThis.player.foodUtil || new Object();
 globalThis.player.foodData.background = new Object();
-globalThis.player.foodData.background.url = await globalThis.player.util.downloadImage('food-web/food-web.jpg');
+globalThis.player.foodData.background.url = await globalThis.player.util.downloadImage('food-web/images/background.jpg');
 globalThis.player.foodData.background.image = new Image();
 globalThis.player.foodData.background.image.src = globalThis.player.foodData.background.url;
 globalThis.player.foodData.noInteract = false;
-globalThis.player.foodData.hitboxes = [];
 function hit(id) {
   alert(globalThis.player.foodData.relations[id].name);
 }
-globalThis.player.foodData.hitboxes.push({ id: "grass", x: 576, y: 451, width: 86, height: 39, click: function() { hit("grass"); }});
-globalThis.player.foodData.hitboxes.push({ id: "lingonberries", x: 461, y: 438, width: 77, height: 49, click: function() { hit("lingonberries"); }});
-globalThis.player.foodData.hitboxes.push({ id: "tree", x: 320, y: 414, width: 78, height: 85, click: function() { hit("tree"); }});
-globalThis.player.foodData.hitboxes.push({ id: "mouse", x: 665, y: 281, width: 81, height: 44, click: function() { hit("mouse"); }});
-globalThis.player.foodData.hitboxes.push({ id: "moose", x: 531, y: 262, width: 78, height: 70, click: function() { hit("moose"); }});
-globalThis.player.foodData.hitboxes.push({ id: "deer", x: 357, y: 242, width: 85, height: 99, click: function() { hit("deer"); }});
-globalThis.player.foodData.hitboxes.push({ id: "mushrooms", x: 238, y: 285, width: 84, height: 27, click: function() { hit("mushrooms"); }});
-globalThis.player.foodData.hitboxes.push({ id: "fish", x: 121, y: 261, width: 65, height: 75, click: function() { hit("fish"); }});
-globalThis.player.foodData.hitboxes.push({ id: "bear", x: 514, y: 71, width: 119, height: 65, click: function() { hit("bear"); }});
-globalThis.player.foodData.hitboxes.push({ id: "lynx", x: 399, y: 68, width: 43, height: 71, click: function() { hit("lynx"); }});
-globalThis.player.foodData.hitboxes.push({ id: "wolf", x: 223, y: 69, width: 110, height: 67, click: function() { hit("wolf"); }});
 var result = await globalThis.player.util.fetchAsset('food-web/relations.json');
 globalThis.player.foodData.relations = await result.json();
+var colorResult = await globalThis.player.util.fetchAsset('food-web/colors.json');
+globalThis.player.foodData.color = await colorResult.json();
+var hitboxResult = await globalThis.player.util.fetchAsset('food-web/hitboxes.json');
+globalThis.player.foodData.hitboxes = await hitboxResult.json();
 globalThis.player.foodUtil.highlightAnimal = function(animal, fill, alpha) {
   var rawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == animal)[0];
   var rect = globalThis.player.foodUtil.calculateHitbox(rawRect.x, rawRect.y, rawRect.width, rawRect.height);
@@ -83,7 +75,11 @@ globalThis.player.foodUtil.calculateHitbox = function(x, y, width, height) {
 function foodWebFrame() {
   processHitboxes(false, null);
   globalThis.player.util.fitImage(globalThis.player.foodData.background.image);
-  globalThis.player.foodUtil.highlightAnimal("deer", "#ffff00", 0.5);
+  globalThis.player.content.globalAlpha = globalThis.player.foodData.colors.overlay.alpha;
+  globalThis.player.context.fillStyle = globalThis.player.foodData.colors.overlay.hex;
+  var canvas = globalThis.player.canvas;
+  globalThis.player.context.fillRect(0, 0, canvas.width, canvas.height);
+  globalThis.player.foodUtil.highlightAnimal("deer", globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
   window.requestAnimationFrame(foodWebFrame);
 }
 window.requestAnimationFrame(foodWebFrame);

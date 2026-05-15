@@ -1,0 +1,18 @@
+{
+  "predator": {
+    "hex": "#ff0000",
+    "alpha": 0.5
+  },
+  "selected": {
+    "hex": "#ffff00",
+    "alpha": 0.5
+  },
+  "prey": {
+    "hex": "#00ff00",
+    "alpha": 0.5
+  },
+  "overlay": {
+    "hex": "#000000",
+    "alpha": 0.5
+  }
+}
