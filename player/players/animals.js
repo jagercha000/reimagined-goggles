@@ -1,5 +1,6 @@
 globalThis.player.animalData = globalThis.player.animalData || new Object();
-globalThis.player.animalData.background = await globalThis.player.util.downloadImage("animals/animals.jpg");
+globalThis.player.animalData.background = new Image();
+globalThis.player.animalData.background.src = await globalThis.player.util.downloadImage("animals/animals.jpg");
 globalThis.player.animalData.animals = globalThis.player.animalData.animals || new Object();
 async function registerAnimal(animal) {
   globalThis.player.animalData.animals[animal] = new Object();
@@ -14,3 +15,9 @@ await registerAnimal('lynx');
 await registerAnimal('moose');
 await registerAnimal('mushrooms');
 await registerAnimal('wolf');
+function animalsFrame() {
+  globalThis.player.util.fitImage(globalThis.player.animalData.background);
+  window.requestAnimationFrame(animalsFrame);
+}
+window.requestAnimationFrame(animalsFrame);
+globalThis.player.stopLoading();
