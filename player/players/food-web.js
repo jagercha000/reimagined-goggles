@@ -6,7 +6,20 @@ globalThis.player.foodData.background.image = new Image();
 globalThis.player.foodData.background.image.src = globalThis.player.foodData.background.url;
 globalThis.player.foodData.noInteract = false;
 globalThis.player.foodData.hitboxes = [];
-globalThis.player.foodData.hitboxes.push({ x: 0, y: 0, width: 50, height: 50, click: function() { alert("Click!"); }});
+function hit(id) {
+  alert(id);
+}
+globalThis.player.foodData.hitboxes.push({ X: 576, y: 451, width: 86, height: 39, click: function() { hit("grass"); }});
+globalThis.player.foodData.hitboxes.push({ x: 464, y: 541, width: 77, height: 59, click: function() { hit("lingonberries"); }});
+globalThis.player.foodData.hitboxes.push({ x: 320, y: 414, width: 78, height: 85, click: function() { hit("tree"); }});
+globalThis.player.foodData.hitboxes.push({ x: 665, y: 281, width: 81, height: 44, click: function() { hit("mouse"); }});
+globalThis.player.foodData.hitboxes.push({ x: 531, y: 262, width: 78, height: 70, click: function() { hit("moose"); }});
+globalThis.player.foodData.hitboxes.push({ x: 357, y: 242, width: 85, height: 99, click: function() { hit("fooba"); }});
+globalThis.player.foodData.hitboxes.push({ x: 238, y: 285, width: 84, height: 27, click: function() { hit("mushrooms"); }});
+globalThis.player.foodData.hitboxes.push({ x: 121, y: 261, width: 65, height: 75, click: function() { hit("fish"); }});
+globalThis.player.foodData.hitboxes.push({ x: 514, y: 71, width: 119, height: 65, click: function() { hit("bear"); }});
+globalThis.player.foodData.hitboxes.push({ x: 399, y: 68, width: 43, height: 71, click: function() { hit("lynx"); }});
+globalThis.player.foodData.hitboxes.push({ x: 223, y: 69, width: 110, height: 67, click: function() { hit("wolf"); }});
 function processHitboxes(click, evt) {
   if(globalThis.player.foodData.noInteract) {
     return;
