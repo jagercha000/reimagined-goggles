@@ -134,6 +134,7 @@ function foodWebFrame() {
   globalThis.player.context.fillStyle = globalThis.player.foodData.colors.overlay.hex;
   var canvas = globalThis.player.canvas;
   globalThis.player.context.fillRect(0, 0, canvas.width, canvas.height);
+  globalThis.player.context.globalAlpha = 1;
   var keys = Object.keys(globalThis.player.foodData.animals);
   for(var i=0;i<keys.length;i++) {
     var key = keys[i];
