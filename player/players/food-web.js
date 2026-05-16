@@ -23,7 +23,9 @@ var colorResult = await globalThis.player.util.fetchAsset('food-web/colors.json'
 globalThis.player.foodData.colors = await colorResult.json();
 var hitboxResult = await globalThis.player.util.fetchAsset('food-web/hitboxes.json');
 globalThis.player.foodData.hitboxes = await hitboxResult.json();
-globalThis.player.foodUtil.highlightAnimal = function(animal, fill, alpha) {
+globalThis.player.foodUtil.highlightAnimal = function(animal, color) {
+  var fill = color.hex;
+  var alpha = color.alpha;
   var rawRect = globalThis.player.foodData.hitboxes.filter(hitbox => hitbox.id == animal)[0];
   var rect = globalThis.player.foodUtil.calculateHitbox(rawRect.x, rawRect.y, rawRect.width, rawRect.height);
   globalThis.player.foodUtil.fillEllipseRect(rect.x, rect.y, rect.width, rect.height, fill, alpha);
@@ -153,7 +155,7 @@ function foodWebFrame() {
       globalThis.player.foodUtil.drawArrowBetweenRects(rect, preyRect, color.hex, color.alpha, 15);
     }
   }
-  globalThis.player.foodUtil.highlightAnimal("deer", globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
+  globalThis.player.foodUtil.highlightAnimal("deer", globalThis.player.foodData.colors.selected);
   window.requestAnimationFrame(foodWebFrame);
 }
 window.requestAnimationFrame(foodWebFrame);
