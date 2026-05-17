@@ -1,1 +1,29 @@
+.predator-info {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9997;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
 
+.predator-close {
+  position: fixed;
+  z-index: 9998;
+  top: 10px;
+  right: 10px;
+}
+
+.predator-info-wrapper {
+  display: flex;
+  background: var(--theme-dark-background);
+  border-radius: var(--button-radius);
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
