@@ -148,9 +148,9 @@ function foodWebFrame() {
   globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 90, 20, 20, globalThis.player.foodData.colors.selected.hex, globalThis.player.foodData.colors.selected.alpha);
   globalThis.player.context.fillStyle = globalThis.player.foodData.colors.text.hex;
   globalThis.player.context.globalAlpha = globalThis.player.foodData.colors.text.alpha;
-  globalThis.player.context.fillText("Prey", 70, canvas.height - 25);
-  globalThis.player.context.fillText("Predator", 70, canvas.height - 55);
-  globalThis.player.context.fillText("Selected", 70, canvas.height - 85);
+  globalThis.player.context.fillText("Prey", 40, canvas.height - 25);
+  globalThis.player.context.fillText("Predator", 40, canvas.height - 55);
+  globalThis.player.context.fillText("Selected", 40, canvas.height - 85);
   globalThis.player.context.globalAlpha = 1;
   var keys = Object.keys(globalThis.player.foodData.animals);
   for(var i=0;i<keys.length;i++) {
