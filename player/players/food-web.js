@@ -7,7 +7,11 @@ globalThis.player.foodData.background.image.src = globalThis.player.foodData.bac
 globalThis.player.foodData.noInteract = false;
 globalThis.player.foodData.selectedAnimal = null;
 function hit(id) {
-  globalThis.player.foodData.selectedAnimal = id;
+  if(globalThis.player.foodData.selectedAnimal == id) {
+    globalThis.player.foodData.selectedAnimal = null;
+  } else {
+    globalThis.player.foodData.selectedAnimal = id;
+  }
 }
 var result = await globalThis.player.util.fetchAsset('food-web/relations.json');
 globalThis.player.foodData.relations = await result.json();
@@ -129,6 +133,18 @@ globalThis.player.foodUtil.drawArrowBetweenRects = function(r1, r2, color, alpha
   globalThis.player.context.restore();
 };
 function foodWebFrame() {
+  globalThis.player.context.font = "Exo 12pt";
+  globalThis.player.context.textAlign = "start";
+  var canvas = globalThis.player.canvas;
+  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 60, 50, 50, globalThis.player.foodData.colors.prey.color.hex, globalThis.player.foodData.colors.prey.color.alpha);
+  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 120, 50, 50, globalThis.player.foodData.colors.predator.color.hex, globalThis.player.foodData.colors.predator.color.alpha);
+  globalThis.player.foodUtil.fillEllipseRect(10, canvas.height - 180, 50, 50, globalThis.player.foodData.colors.selected.color.hex, globalThis.player.foodData.colors.selected.color.alpha);
+  globalThis.player.context.fillStyle = globalThis.player.foodData.colors.text.hex;
+  globalThis.player.context.globalAlpha = globalThis.player.foodData.colors.text.alpha;
+  globalThis.player.context.fillText("Prey", 70, canvas.height - 60);
+  globalThis.player.context.fillText("Predator", 70, canvas.height - 120);
+  globalThis.player.context.fillText("Selected", 70, canvas.height - 180);
+  globalThis.player.context.globalAlpha = 1;
   globalThis.player.util.clearCanvas();
   processHitboxes(false, null);
   globalThis.player.util.fitImage(globalThis.player.foodData.background.image);

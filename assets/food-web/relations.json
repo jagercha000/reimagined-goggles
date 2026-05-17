@@ -1,8 +1,8 @@
 {
   "tree": {
     "name": "Tree",
-    "type": "plant",
-    "role": "producer",
+    "type": "Plant",
+    "role": "Producer",
     "predators": [
       "mushrooms",
       "moose"
@@ -11,8 +11,8 @@
   },
   "lingonberries": {
     "name": "Lingonberries",
-    "type": "plant",
-    "role": "producer",
+    "type": "Plant",
+    "role": "Producer",
     "predators": [
       "deer",
       "moose"
@@ -21,8 +21,8 @@
   },
   "grass": {
     "name": "Grass",
-    "type": "plant",
-    "role": "producer",
+    "type": "Plant",
+    "role": "Producer",
     "predators": [
       "deer",
       "moose",
@@ -32,8 +32,8 @@
   },
   "fish": {
     "name": "Fish",
-    "type": "animal",
-    "role": "consumer",
+    "type": "Animal",
+    "role": "Consumer",
     "predators": [
       "bear"
     ],
@@ -41,8 +41,8 @@
   },
   "mushrooms": {
     "name": "Mushrooms",
-    "type": "fungi",
-    "role": "decomposer",
+    "type": "Fungus",
+    "role": "Decomposer",
     "predators": [],
     "prey": [
       "tree"
@@ -50,8 +50,8 @@
   },
   "deer": {
     "name": "Deer",
-    "type": "animal",
-    "role": "consumer",
+    "type": "Animal",
+    "role": "Consumer",
     "predators": [
       "wolf",
       "lynx"
@@ -63,8 +63,8 @@
   },
   "moose": {
     "name": "Moose",
-    "type": "animal",
-    "role": "consumer",
+    "type": "Animal",
+    "role": "Consumer",
     "predators": [
       "wolf"
     ],
@@ -76,8 +76,8 @@
   },
   "mouse": {
     "name": "Small Mammals",
-    "type": "animal",
-    "role": "consumer",
+    "type": "Animal",
+    "role": "Consumer",
     "predators": [
       "bear"
     ],
@@ -87,8 +87,8 @@
   },
   "wolf": {
     "name": "Wolf",
-    "type": "animal",
-    "role": "secondary-consumer",
+    "type": "Animal",
+    "role": "Secondary Consumer",
     "predators": [],
     "prey": [
       "deer",
@@ -97,8 +97,8 @@
   },
   "lynx": {
     "name": "Lynx",
-    "type": "animal",
-    "role": "secondary-consumer",
+    "type": "Animal",
+    "role": "Secondary Consumer",
     "predators": [],
     "prey": [
       "deer"
@@ -106,8 +106,8 @@
   },
   "bear": {
     "name": "Bear",
-    "type": "animal",
-    "role": "secondary-consumer",
+    "type": "Animal",
+    "role": "Secondary Consumer",
     "predators": [],
     "prey": [
       "fish",
