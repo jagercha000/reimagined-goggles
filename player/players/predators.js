@@ -13,13 +13,39 @@ globalThis.player.predatorsData.preyImages = new Object();
 for(var i=0;i<contentKeys.length;i++) {
   var key = contentKeys[i];
   var content = globalThis.player.predatorsData.content[key];
+  var element = document.createElement('div');
+  element.setAttribute('class', 'predator-info hidden');
+  element.setAttribute('data-id', key);
+  var titleElement = document.createElement('p');
+  titleElement.setAttribute('class', 'predator-name');
+  titleElement.innerText = content.name;
+  element.appendChild(titleElement);
+  var preyElement = document.createElement('div');
+  preyElement.setAttribute('class', 'predator-prey');
   for(var j=0;j<content.prey.length;j++) {
     var preyId = content.prey[j].id;
     globalThis.player.predatorsData.preyImages[preyId] = new Object();
     globalThis.player.predatorsData.preyImages[preyId].url = await globalThis.player.util.downloadImage('predator-prey/prey/' + preyId + '.png');
     globalThis.player.predatorsData.preyImages[preyId].image = new Image();
     globalThis.player.predatorsData.preyImages[preyId].image.src = globalThis.player.predatorsData.preyImages[preyId].url;
+    var preyContentElement = document.createElement('div');
+    preyContentElement.setAttribute('class', 'prey-info');
+    var preyName = document.createElement('p');
+    preyName.setAttribute('class', 'prey-name');
+    preyName.innerText = content.prey[j].name;
+    preyContentElement.appendChild(preyName);
+    var preyImage = document.createElement('img');
+    preyImage.setAttribute('class', 'prey-image');
+    preyImage.setAttribute('src', globalThis.player.predatorsData.preyImages[preyId]);
+    preyContentElement.appendChild(preyImage);
+    var preyInfo = document.createElement('p');
+    preyInfo.setAttribute('class', 'prey-content');
+    preyInfo.innerText = content.prey[j].content;
+    preyContentElement.appendChild(preyInfo);
+    preyElement.appendChild(preyContentElement);
   }
+  element.appendChild(preyElement);
+  document.body.appendChild(element);
 }
 function hit(id) {
   alert(id);
