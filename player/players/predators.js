@@ -13,9 +13,16 @@ globalThis.player.predatorsData.preyImages = new Object();
 for(var i=0;i<contentKeys.length;i++) {
   var key = contentKeys[i];
   var content = globalThis.player.predatorsData.content[key];
+  var wrapperElement = document.createElement('div');
+  wrapperElement.setAttribute('class', 'predator-info hidden');
+  wrapperElement.setAttribute('data-id', key);
+  var button = document.createElement('button');
+  button.setAttribute('class', 'predator-close');
+  button.innerText = 'Close';
+  button.addEventListener('click', closeHit);
+  wrapperElement.appendChild(button);
   var element = document.createElement('div');
-  element.setAttribute('class', 'predator-info hidden');
-  element.setAttribute('data-id', key);
+  element.setAttribute('class', 'predator-info-container');
   var titleElement = document.createElement('p');
   titleElement.setAttribute('class', 'predator-name');
   titleElement.innerText = content.name;
@@ -45,10 +52,27 @@ for(var i=0;i<contentKeys.length;i++) {
     preyElement.appendChild(preyContentElement);
   }
   element.appendChild(preyElement);
-  document.body.appendChild(element);
+  wrapperElement.appendChild(element);
+  document.body.appendChild(wrapperElement);
+}
+function closeHit(evt) {
+  if(globalThis.player.noInteract) {
+    return;
+  }
+  var wrapper = evt.target.closest('.predator-info');
+  globalThis.player.noInteract = true;
+  gsap.fromTo(wrapper, { opacity: 1 }, { opacity: 0, duration: 1, onComplete: (function() {
+    globalThis.player.predatorsData.noInteract = false;
+    wrapper.classList.add('hidden');
+  }).bind(this) });
 }
 function hit(id) {
-  alert(id);
+  var wrapper = document.querySelector('.predator-info[data-id="' + id + '"]');
+  globalThis.player.predatorsData.noInteract = true;
+  wrapper.classList.remove('hidden');
+  gsap.fromTo(wrapper, { opacity: 0 }, { opacity: 1, duration: 1, onComplete: function() {
+    globalThis.player.predatorsData.noInteract = false;
+  }});
 }
 globalThis.player.predatorsData.hitboxes.push({ x: 53, y: 351, width: 95, height: 60, click: function() { hit("wolf"); }});
 globalThis.player.predatorsData.hitboxes.push({ x: 357, y: 344, width: 30, height: 70, click: function() { hit("lynx"); }});
