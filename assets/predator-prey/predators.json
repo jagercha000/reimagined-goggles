@@ -1,41 +1,44 @@
 {
   "bear": {
     "name": "Bear",
+    "content": "Bears are opportunistic omnivors that eat fish and small mammals.",
     "prey": [
       {
         "id": "fish",
         "name": "Fish",
-        "content": "Content 1"
+        "content": "Fish are found in many bodies of water."
       },
       {
         "id": "mouse",
         "name": "Small Mammals",
-        "content": "Content 2"
+        "content": "Small mammals include mice and other rodents."
       }
     ]
   },
   "lynx": {
     "name": "Lynx",
+    "content": "The lynx is a solitary predator that uses stealth to sneak up on its prey.",
     "prey": [
       {
         "id": "deer",
         "name": "Deer",
-        "content": "Content 3"
+        "content": "Deer are hoofed ruminants (animals that graze and ferment plants)."
       }
     ]
   },
   "wolf": {
     "name": "Wolf",
+    "content": "Wolves usually hunt in packs of 3-10. The allows them to take on animals larger than themselves.",
     "prey": [
       {
         "id": "deer",
         "name": "Deer",
-        "content": "Content 4"
+        "content": "Deer are hoofed ruminants (animals that graze and ferment plants)."
       },
       {
         "id": "moose",
         "name": "Moose",
-        "content": "Content 5"
+        "content": "Moose are the largest species in the deer family."
       }
     ]
   }
