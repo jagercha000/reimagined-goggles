@@ -1,0 +1,42 @@
+{
+  "bear": {
+    "name": "Bear",
+    "prey": [
+      {
+        "id": "fish",
+        "name": "Fish",
+        "content": "Content 1"
+      },
+      {
+        "id": "mouse",
+        "name": "Small Mammals",
+        "content": "Content 2"
+      }
+    ]
+  },
+  "lynx": {
+    "name": "Lynx",
+    "prey": [
+      {
+        "id": "deer",
+        "name": "Deer",
+        "content": "Content 3"
+      }
+    ]
+  },
+  "wolf": {
+    "name": "Wolf",
+    "prey": [
+      {
+        "id": "deer",
+        "name": "Deer",
+        "content": "Content 4"
+      },
+      {
+        "id": "moose",
+        "name": "Moose",
+        "content": "Content 5"
+      }
+    ]
+  }
+}

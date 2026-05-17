@@ -6,6 +6,21 @@ globalThis.player.predatorsData.background.image = new Image();
 globalThis.player.predatorsData.background.image.src = globalThis.player.predatorsData.background.url;
 globalThis.player.predatorsData.noInteract = false;
 globalThis.player.predatorsData.hitboxes = [];
+var contentResult = await globalThis.player.util.fetchAsset('predator-prey/predators.json');
+globalThis.player.predatorsData.content = await contentResult.json();
+var contentKeys = Object.keys(globalThis.player.predatorsData.content);
+globalThis.player.predatorsData.preyImages = new Object();
+for(var i=0;i<contentKeys;i++) {
+  var key = contentKeys[i];
+  var content = globalThis.player.predatorsData.content[key];
+  for(var j=0;j<content.prey.length;j++) {
+    var preyId = content.prey[j].id;
+    globalThis.player.predatorsData.preyImages[preyId] = new Object();
+    globalThis.player.predatorsData.preyImages[preyId].url = await globalThis.player.util.downloadImage('predator-prey/prey/' + preyId + '.png');
+    globalThis.player.predatorsData.preyImages[preyId].image = new Image();
+    globalThis.player.predatorsData.preyImages[preyId].image.src = globalThis.player.predatorsData.preyImages[preyId].url;
+  }
+}
 function hit(id) {
   alert(id);
 }
