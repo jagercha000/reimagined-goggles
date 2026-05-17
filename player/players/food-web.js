@@ -163,10 +163,10 @@ function foodWebFrame() {
   if(globalThis.player.foodData.selectedAnimal) {
     var relation = globalThis.player.foodData.relations[globalThis.player.foodData.selectedAnimal];
     for(var i=0;i<relation.prey.length;i++) {
-      globalThis.player.foodUtil.highlightAnimal(relation.prey[i], globalThis.player.colors.prey);
+      globalThis.player.foodUtil.highlightAnimal(relation.prey[i], globalThis.player.foodData.colors.prey);
     }
     for(var j=0;j<relation.predators.length;j++) {
-      globalThis.player.foodUtil.highlightAnimal(relation.predators[j], globalThis.player.colors.predator);
+      globalThis.player.foodUtil.highlightAnimal(relation.predators[j], globalThis.player.foodData.colors.predator);
     }
   }
   window.requestAnimationFrame(foodWebFrame);
