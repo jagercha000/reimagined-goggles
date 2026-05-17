@@ -48,4 +48,10 @@
 .prey-info {
   background: var(--theme-dark-accent-background);
   border-radius: var(--button-radius);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
