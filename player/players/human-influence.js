@@ -10,9 +10,10 @@ async function registerImage(url) {
   globalThis.player.humanData.image.image = new Image();
   globalThis.player.humanData.image.image.src = globalThis.player.humanData.image.url;
 }
-globalThis.player.humanUtil.showCaption = function(text, duration) {
+globalThis.player.humanUtil.showCaption = function(id) {
+  var duration = globalThis.player.humanData.captionTime;
   document.querySelector('.human-caption-container').classList.remove('hidden');
-  document.querySelector('.human-caption').innerText = text;
+  document.querySelector('.human-caption').innerText = globalThis.player.humanData.captions[id];
   gsap.fromTo('.human-caption-container', { opacity: 0 }, { opacity: 1, duration: 0.5, onComplete: function() {
     setTimeout(function() {
       gsap.fromTo('.human-caption-container', { opacity: 1 }, { opacity: 0, duration: 0.5, onComplete: function() {
